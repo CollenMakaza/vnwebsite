@@ -1,0 +1,39 @@
+HTTrack3.49-5 launched on Sat, 28 Feb 2026 15:07:19 at https://modinatheme.com/html/zotech/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/*
+(webhttrack -q -%i -w https://modinatheme.com/html/zotech/index.html -O "/home/collen/websites/vnadrweb" -n -%P -N0 -s2 -p7 -D -a -K0 -c4 -%k -A100000 -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -%s -%u )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:12:05	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/causes.html (from https://modinatheme.com/html/zotech/index.html)
+15:12:05	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/news-details.html (from https://modinatheme.com/html/zotech/index-4.html)
+15:12:05	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/news.html (from https://modinatheme.com/html/zotech/blog-news.html)
+15:12:05	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/blog-details.html (from https://modinatheme.com/html/zotech/blogs-details.html)
+15:14:24	Warning: 	File seems complete (same size), but there was a cache read error (4294967295): https://modinatheme.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+15:27:31	Warning: 	HTML file (97891 bytes) retransferred due to lack of cache: https://modinatheme.com/html/zotech/index-2.html
+15:27:40	Warning: 	HTML file (135266 bytes) retransferred due to lack of cache: https://modinatheme.com/html/zotech/index-3.html
+15:27:50	Warning: 	HTML file (121913 bytes) retransferred due to lack of cache: https://modinatheme.com/html/zotech/index-4.html
+15:28:00	Warning: 	HTML file (35174 bytes) retransferred due to lack of cache: https://modinatheme.com/html/zotech/causes.html
+15:28:07	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/causes.html (from https://modinatheme.com/html/zotech/index.html)
+15:39:55	Warning: 	HTML file (35174 bytes) retransferred due to lack of cache: https://modinatheme.com/html/zotech/news-details.html
+15:40:00	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/news-details.html (from https://modinatheme.com/html/zotech/index-4.html)
+15:40:00	Warning: 	HTML file (35174 bytes) retransferred due to lack of cache: https://modinatheme.com/html/zotech/news.html
+15:40:05	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/news.html (from https://modinatheme.com/html/zotech/blog-news.html)
+15:40:05	Warning: 	HTML file (35174 bytes) retransferred due to lack of cache: https://modinatheme.com/html/zotech/blog-details.html
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/blog-details.html (from https://modinatheme.com/html/zotech/blogs-details.html)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-bg_highlight-soft_75_cccccc_1x100.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-bg_glass_75_e6e6e6_1x400.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-bg_glass_75_dadada_1x400.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-bg_glass_65_ffffff_1x400.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-bg_glass_55_fbf9ee_1x400.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-bg_glass_95_fef1ec_1x400.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-icons_222222_256x240.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-icons_888888_256x240.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-icons_454545_256x240.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-icons_2e83ff_256x240.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/css/images/ui-icons_cd0a0a_256x240.png (from https://modinatheme.com/html/zotech/assets/css/jquery-ui.css)
+15:40:10	Error: 	"Not Found" (404) at link https://modinatheme.com/html/zotech/assets/img/quotepost.png (from https://modinatheme.com/html/zotech/assets/css/main.css)
+
+HTTrack Website Copier/3.49-5 mirror complete in 32 minutes 51 seconds : 315 links scanned, 429 files written (30573587 bytes overall) [16303334 bytes received at 8271 bytes/sec], 6654890 bytes transferred using HTTP compression in 78 files, ratio 32%, 3.2 requests per connection
+(20 errors, 8 warnings, 0 messages)
