@@ -1,0 +1,19 @@
+# Enable rewrites
+RewriteEngine On
+RewriteBase /
+
+# Route your existing JS endpoint to index.php without changing the JS
+# POST /api/send_email.php  -->  /index.php
+RewriteRule ^api/send_email\.php$ index.php [QSA,L]
+
+# Security / hygiene
+# Block direct access to .env or hidden files
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes
+
+# UTF-8 default
+AddDefaultCharset UTF-8

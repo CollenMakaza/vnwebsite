@@ -351,40 +351,52 @@
                     <div class="row g-5">
                         <div class="col-xl-6 col-lg-12 col-md-12 pe-xl-0 wow fadeInLeft" data-wow-delay="300ms">
                             <div class="contact-left">
-                                <form action="#" id="contact-form" method="POST">
-                                    <div class="row g-4">
-                                        <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".2">
-                                            <span>First Name</span>
-                                            <div class="form-clt">
-                                                <input type="text" name="name" placeholder="First Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".6">
-                                            <span>Last Name</span>
-                                            <div class="form-clt">
-                                                <input type="text" name="name" placeholder="Last Name">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 pe-0 wow fadeInUp" data-wow-delay=".4">
-                                            <span>Your Email</span>
-                                            <div class="form-clt">
-                                                <input type="email" name="email" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".2">
-                                            <span>Phone Number</span>
-                                            <div class="form-clt">
-                                                <input type="text" name="name" placeholder="Your Phone">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".6">
-                                            <span>Country</span>
-                                            <div class="form-clt">
-                                                <input type="text" name="phone" placeholder="Your Country">
-                                            </div>
+                               <form action="#" id="contact-form-3" method="POST">
+                                <div class="row g-4">
+                                    <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".2">
+                                        <span>First Name</span>
+                                        <div class="form-clt">
+                                            <input type="text" id="first-name3" name="first_name" placeholder="First Name">
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".6">
+                                        <span>Last Name</span>
+                                        <div class="form-clt">
+                                            <input type="text" id="last-name3" name="last_name" placeholder="Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 pe-0 wow fadeInUp" data-wow-delay=".4">
+                                        <span>Your Email</span>
+                                        <div class="form-clt">
+                                            <input type="email" id="email3" name="email" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".2">
+                                        <span>Phone Number</span>
+                                        <div class="form-clt">
+                                            <input type="text" id="phone3" name="phone" placeholder="Your Phone">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".6">
+                                        <span>Country</span>
+                                        <div class="form-clt">
+                                            <input type="text" id="country3" name="country" placeholder="Your Country">
+                                        </div>
+                                    </div>
+
+                                    <!-- Response messages -->
+                                    <div class="col-lg-12">
+                                        <div id="success-message-3" style="display:none; color: green; margin-bottom: 10px;"></div>
+                                        <div id="form-message-3" style="display:none; margin-bottom: 10px;"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button type="submit" id="submit-btn-3" class="theme-btn black-btn">
+                                            Send Your Message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                                 <div class="categories mt-4 pt-3">
                                     <span class="fw-semibold">What's the type of your company?</span>
                                     <div class="categories-items mt-2">
@@ -611,12 +623,6 @@
         </footer>
 
     </div>
-
-
-
-
-
-
     <!--<< All JS Plugins >>-->
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js"></script>
     <!--<< Jquery ui Js >>-->
@@ -662,8 +668,105 @@
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v67327c56f0bb4ef8b305cae61679db8f1769101564043" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon='{"version":"2024.11.0","token":"90f7972af14a48b4add7da2b74f5d675","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body>
+<script>
+(function () {
+    const contactForm = document.getElementById("contact-form-3");
+    const submitBtn   = document.getElementById("submit-btn-3");
+    const formMessage = document.getElementById("form-message-3");
+    const successMsg  = document.getElementById("success-message-3");
 
+    if (!contactForm) return;
+
+    // Honeypot
+    const hp = document.createElement("input");
+    hp.type = "text"; hp.name = "website"; hp.id = "website3";
+    hp.tabIndex = -1; hp.autocomplete = "off";
+    hp.style.cssText = "position:absolute;left:-9999px;opacity:0;height:0;width:0;";
+    hp.setAttribute("aria-hidden", "true");
+    contactForm.appendChild(hp);
+
+    function showInfo(msg) {
+        formMessage.style.display = "block";
+        formMessage.className = "message-info";
+        formMessage.textContent = msg;
+    }
+    function showError(msg) {
+        formMessage.style.display = "block";
+        formMessage.className = "message-error";
+        formMessage.textContent = msg;
+    }
+    function showSuccess(msg) {
+        formMessage.style.display = "none";
+        successMsg.style.display = "block";
+        successMsg.textContent = msg || "Message sent successfully.";
+        setTimeout(() => { successMsg.style.display = "none"; }, 5000);
+    }
+    function setLoading(isLoading) {
+        if (isLoading) {
+            submitBtn.dataset.original = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+        } else {
+            submitBtn.innerHTML = submitBtn.dataset.original || "Send Your Message";
+            submitBtn.disabled = false;
+        }
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        successMsg.style.display = "none";
+        showInfo("Sending your message...");
+        setLoading(true);
+
+        const honeypot = document.getElementById("website3");
+        if (honeypot && honeypot.value) { setLoading(false); return; }
+
+        const firstName = document.getElementById("first-name3")?.value?.trim() || "";
+        const lastName  = document.getElementById("last-name3")?.value?.trim()  || "";
+
+        const payload = {
+            Name:    `${firstName} ${lastName}`.trim(),
+            Email:   document.getElementById("email3")?.value?.trim()   || "",
+            Phone:   document.getElementById("phone3")?.value?.trim()   || "",
+            Country: document.getElementById("country3")?.value?.trim() || "",
+            Message: "",
+        };
+
+        try {
+            const resp = await fetch("api/send_email.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+
+            const ctype = resp.headers.get("content-type") || "";
+            if (!ctype.includes("application/json")) {
+                const text = await resp.text();
+                console.error("Non-JSON response:", text.slice(0, 200));
+                window.location.href = "/500.html";
+                return;
+            }
+
+            const result = await resp.json();
+
+            if (resp.ok && result.success) {
+                showSuccess(result.message || "Message sent successfully.");
+                contactForm.reset();
+            } else {
+                showError(result.message || "Oops! Something went wrong.");
+                if (result.redirect) window.location.href = result.redirect;
+            }
+        } catch (err) {
+            console.error("Fetch error:", err);
+            window.location.href = "/500.html";
+        } finally {
+            setLoading(false);
+        }
+    });
+})();
+</script>
+</body>
 
 <!-- Mirrored from modinatheme.com/html/zotech/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 13:12:05 GMT -->
 </html>

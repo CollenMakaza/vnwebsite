@@ -659,33 +659,31 @@
                     <div class="col-xl-6 col-lg-6 col-md-12  wow fadeInRight" data-wow-delay="300ms">
                         <div class="contact-right mt-4 mt-md-0">
                             <h3>Send Your Message!</h3>
-                            <form action="#" id="contact-form" method="POST">
+                            <form action="#" id="contact-form-2" method="POST">
                                 <div class="row g-3">
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <input type="text" name="name" id="name" placeholder="Your Name">
+                                            <input type="text" name="name" id="name2" placeholder="Your Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <input type="text" name="email" id="email" placeholder="Email Address">
+                                            <input type="text" name="email" id="email2" placeholder="Email Address">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 ">
+                                    <div class="col-lg-6">
                                         <div class="form-clt">
-                                            <input type="text" name="phone" id="phone" placeholder="Phone Number">
+                                            <input type="text" name="phone" id="phone2" placeholder="Phone Number">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-clt">
                                             <div class="nice-select" tabindex="0">
-                                                <span class="current">
-                                                    Subject
-                                                </span>
+                                                <span class="current">Subject</span>
                                                 <ul class="list">
                                                     <li class="option">IT Management</li>
                                                     <li class="option">Cloud Services</li>
-                                                    <li  class="option">Business and IT Consultancy</li>
+                                                    <li class="option">Business and IT Consultancy</li>
                                                     <li class="option">Artificial Intelligence</li>
                                                 </ul>
                                             </div>
@@ -693,12 +691,18 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-clt-big form-clt">
-                                            <textarea name="message" id="message"
-                                                placeholder="Write a Message"></textarea>
+                                            <textarea name="message" id="message2" placeholder="Write a Message"></textarea>
                                         </div>
                                     </div>
+
+                                    <!-- Response messages -->
                                     <div class="col-lg-12">
-                                        <button type="submit" class="theme-btn black-btn">
+                                        <div id="success-message-2" style="display:none; color: green; margin-bottom: 10px;"></div>
+                                        <div id="form-message-2" style="display:none; margin-bottom: 10px;"></div>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button type="submit" class="theme-btn black-btn" id="submit-btn-2">
                                             Send Your Message
                                         </button>
                                     </div>
@@ -953,6 +957,111 @@
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v67327c56f0bb4ef8b305cae61679db8f1769101564043" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon='{"version":"2024.11.0","token":"90f7972af14a48b4add7da2b74f5d675","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script>
+(function () {
+    const contactForm   = document.getElementById("contact-form-2");
+    const submitBtn     = document.getElementById("submit-btn-2");
+    const formMessage   = document.getElementById("form-message-2");
+    const successMsg    = document.getElementById("success-message-2");
+
+    if (!contactForm) return;
+
+    // Honeypot
+    const hp = document.createElement("input");
+    hp.type = "text"; hp.name = "website"; hp.id = "website2";
+    hp.tabIndex = -1; hp.autocomplete = "off";
+    hp.style.cssText = "position:absolute;left:-9999px;opacity:0;height:0;width:0;";
+    hp.setAttribute("aria-hidden", "true");
+    contactForm.appendChild(hp);
+
+    // Get selected subject from nice-select
+    function getSubject() {
+        const current = contactForm.querySelector(".nice-select .current");
+        const val = current ? current.textContent.trim() : "";
+        return val === "Subject" ? "" : val;
+    }
+
+    function showInfo(msg) {
+        formMessage.style.display = "block";
+        formMessage.className = "message-info";
+        formMessage.textContent = msg;
+    }
+    function showError(msg) {
+        formMessage.style.display = "block";
+        formMessage.className = "message-error";
+        formMessage.textContent = msg;
+    }
+    function showSuccess(msg) {
+        formMessage.style.display = "none";
+        successMsg.style.display = "block";
+        successMsg.textContent = msg || "Message sent successfully.";
+        setTimeout(() => { successMsg.style.display = "none"; }, 5000);
+    }
+    function setLoading(isLoading) {
+        if (isLoading) {
+            submitBtn.dataset.original = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+        } else {
+            submitBtn.innerHTML = submitBtn.dataset.original || "Send Your Message";
+            submitBtn.disabled = false;
+        }
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        successMsg.style.display = "none";
+        showInfo("Sending your message...");
+        setLoading(true);
+
+        const honeypot = document.getElementById("website2");
+        if (honeypot && honeypot.value) { setLoading(false); return; }
+
+        const payload = {
+            Name:    document.getElementById("name2")?.value?.trim()    || "",
+            Email:   document.getElementById("email2")?.value?.trim()   || "",
+            Phone:   document.getElementById("phone2")?.value?.trim()   || "",
+            Subject: getSubject(),
+            Message: document.getElementById("message2")?.value?.trim() || "",
+        };
+
+        try {
+            const resp = await fetch("api/send_email.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+            });
+
+            const ctype = resp.headers.get("content-type") || "";
+            if (!ctype.includes("application/json")) {
+                const text = await resp.text();
+                console.error("Non-JSON response:", text.slice(0, 200));
+                window.location.href = "/500.html";
+                return;
+            }
+
+            const result = await resp.json();
+
+            if (resp.ok && result.success) {
+                showSuccess(result.message || "Message sent successfully.");
+                contactForm.reset();
+                // Reset nice-select label
+                const current = contactForm.querySelector(".nice-select .current");
+                if (current) current.textContent = "Subject";
+            } else {
+                showError(result.message || "Oops! Something went wrong.");
+                if (result.redirect) window.location.href = result.redirect;
+            }
+        } catch (err) {
+            console.error("Fetch error:", err);
+            window.location.href = "/500.html";
+        } finally {
+            setLoading(false);
+        }
+    });
+})();
+</script>
 </body>
 
 
