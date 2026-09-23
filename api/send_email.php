@@ -31,6 +31,9 @@ if (strpos($input, '{') === 0) {
     $email = $data['Email'] ?? '';
     $phone = $data['Phone'] ?? '';
     $message = $data['Message'] ?? '';
+    $country = $data['Country'] ?? '';
+    $company_type = $data['CompanyType'] ?? '';
+    $subject_field = $data['Subject'] ?? '';
 } else {
     // Form-urlencoded input
     parse_str($input, $data);
@@ -38,6 +41,9 @@ if (strpos($input, '{') === 0) {
     $email = $data['email'] ?? '';
     $phone = $data['phone'] ?? '';
     $message = $data['message'] ?? '';
+    $country = $data['country'] ?? '';
+    $company_type = $data['company_type'] ?? '';
+    $subject_field = $data['subject'] ?? '';
 }
 
 // Sanitize inputs
@@ -52,6 +58,9 @@ $name = sanitize_input($name);
 $email = sanitize_input($email);
 $phone = sanitize_input($phone);
 $message = sanitize_input($message);
+$country = sanitize_input($country);
+$company_type = sanitize_input($company_type);
+$subject_field = sanitize_input($subject_field);
 
 // Validate inputs
 if (empty($name) || empty($email) || empty($message)) {
@@ -77,8 +86,17 @@ $to = "info@vulturenest.org";
 $subject = "New Contact Form Submission from $name";
 $email_content = "Name: $name\n";
 $email_content .= "Email: $email\n";
-$email_content .= "Phone: $phone\n\n";
-$email_content .= "Message:\n$message";
+$email_content .= "Phone: $phone\n";
+if (!empty($country)) {
+    $email_content .= "Country: $country\n";
+}
+if (!empty($company_type)) {
+    $email_content .= "Company Type: $company_type\n";
+}
+if (!empty($subject_field)) {
+    $email_content .= "Subject: $subject_field\n";
+}
+$email_content .= "\nMessage:\n$message";
 
 $headers = "From: $name <$email>\r\n";
 $headers .= "Reply-To: $email\r\n";

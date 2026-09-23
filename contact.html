@@ -356,9 +356,9 @@
                 </div>
                 <div class="contact-us-inner">
                     <div class="row g-5">
+                        <form action="#" id="contact-form-3" method="POST" class="row g-5 w-100 mx-0">
                         <div class="col-xl-6 col-lg-12 col-md-12 pe-xl-0 wow fadeInLeft" data-wow-delay="300ms">
                             <div class="contact-left">
-                               <form action="#" id="contact-form-3" method="POST">
                                 <div class="row g-4">
                                     <div class="col-lg-6 pe-0 wow fadeInUp" data-wow-delay=".2">
                                         <span>First Name</span>
@@ -396,53 +396,47 @@
                                         <div id="success-message-3" style="display:none; color: green; margin-bottom: 10px;"></div>
                                         <div id="form-message-3" style="display:none; margin-bottom: 10px;"></div>
                                     </div>
-
-                                    <div class="col-lg-12">
-                                        <button type="submit" id="submit-btn-3" class="theme-btn black-btn">
-                                            Send Your Message
-                                        </button>
-                                    </div>
                                 </div>
-                            </form>
                                 <div class="categories mt-4 pt-3">
-                                    <span class="fw-semibold">What's the type of your company?</span>
-                                    <div class="categories-items mt-2">
-                                        <div class="single-item">It Company</div>
-                                        <div class="single-item">Business</div>
-                                        <div class="single-item">Cyber Security</div>
-                                        <div class="single-item">Other</div>
+                                    <span class="fw-semibold">What&#39;s the type of your company?</span>
+                                    <input type="hidden" id="company-type3" name="company_type" value="">
+                                    <div class="categories-items mt-2" id="company-type-picker3" role="radiogroup" aria-label="What's the type of your company?">
+                                        <div class="single-item" data-value="IT Company" role="radio" aria-checked="false" tabindex="0">IT Company</div>
+                                        <div class="single-item" data-value="Business" role="radio" aria-checked="false" tabindex="0">Business</div>
+                                        <div class="single-item" data-value="Cyber Security" role="radio" aria-checked="false" tabindex="0">Cyber Security</div>
+                                        <div class="single-item" data-value="Other" role="radio" aria-checked="false" tabindex="0">Other</div>
                                     </div>
                                 </div>
                                 <div class="checked-box mt-4 pt-3">
                                     <span class="fw-semibold">What you need from us?</span>
                                     <div class="checked-box-items mt-2">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" value="App Design" name="needs[]" id="need-app-design3">
+                                            <label class="form-check-label" for="need-app-design3">
                                                 App Design
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" value="Digital Marketing" name="needs[]" id="need-digital-marketing3">
+                                            <label class="form-check-label" for="need-digital-marketing3">
                                                 Digital Marketing
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" value="UI/UX Design" name="needs[]" id="need-ui-ux3">
+                                            <label class="form-check-label" for="need-ui-ux3">
                                                 UI/UX Design
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" value="Cloud service" name="needs[]" id="need-cloud3">
+                                            <label class="form-check-label" for="need-cloud3">
                                                 Cloud service
                                             </label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" value="Other Services" name="needs[]" id="need-other3">
+                                            <label class="form-check-label" for="need-other3">
                                                 Other Services
                                             </label>
                                         </div>
@@ -452,33 +446,27 @@
                         </div>
                         <div class="col-xl-6 col-lg-12 col-md-12 wow fadeInRight" data-wow-delay="300ms">
                             <div class="contact-right ps-xl-5 ms-xl-3">
-                                <div class="price-ranger">
-                                    <span>Your Service Budget</span>
-                                    <div id="slider-range"></div>
-                                    <div class="ranger-min-max-block pt-3">
-                                        <span class="min">$56</span> <span class="max">$1578</span>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 wow fadeInUp mt-4" data-wow-delay=".8">
+                                <div class="col-lg-12 wow fadeInUp" data-wow-delay=".8">
                                     <span>Your Message</span>
                                     <div class="form-clt-big form-clt">
-                                        <textarea name="message" id="message" placeholder="Write a Message"></textarea>
+                                        <textarea name="message" id="message3" placeholder="Write a Message"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Click the box and agree to our terms and conditions
+                                    <input class="form-check-input" type="checkbox" value="" id="agree-terms3">
+                                    <label class="form-check-label" for="agree-terms3">
+                                        Click the box and agree to our terms and conditions
                                     </label>
                                 </div>
                                 <div
                                     class="contact-btn d-flex align-items-center justify-content-between flex-wrap  mt-4">
-                                    <button type="submit" class="theme-btn black-btn">Send Message</button>
-
-                                    
+                                    <button type="submit" id="submit-btn-3" class="theme-btn black-btn">
+                                        Send Your Message
+                                    </button>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -692,6 +680,31 @@
     hp.setAttribute("aria-hidden", "true");
     contactForm.appendChild(hp);
 
+    // Company type picker (single-select)
+    const companyTypeInput = document.getElementById("company-type3");
+    const companyTypePicker = document.getElementById("company-type-picker3");
+    if (companyTypePicker && companyTypeInput) {
+        const options = companyTypePicker.querySelectorAll(".single-item");
+        const selectOption = (opt) => {
+            options.forEach((o) => {
+                o.classList.remove("active");
+                o.setAttribute("aria-checked", "false");
+            });
+            opt.classList.add("active");
+            opt.setAttribute("aria-checked", "true");
+            companyTypeInput.value = opt.dataset.value || opt.textContent.trim();
+        };
+        options.forEach((opt) => {
+            opt.addEventListener("click", () => selectOption(opt));
+            opt.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    selectOption(opt);
+                }
+            });
+        });
+    }
+
     function showInfo(msg) {
         formMessage.style.display = "block";
         formMessage.className = "message-info";
@@ -733,11 +746,12 @@
         const lastName  = document.getElementById("last-name3")?.value?.trim()  || "";
 
         const payload = {
-            Name:    `${firstName} ${lastName}`.trim(),
-            Email:   document.getElementById("email3")?.value?.trim()   || "",
-            Phone:   document.getElementById("phone3")?.value?.trim()   || "",
-            Country: document.getElementById("country3")?.value?.trim() || "",
-            Message: "",
+            Name:        `${firstName} ${lastName}`.trim(),
+            Email:       document.getElementById("email3")?.value?.trim()   || "",
+            Phone:       document.getElementById("phone3")?.value?.trim()   || "",
+            Country:     document.getElementById("country3")?.value?.trim() || "",
+            CompanyType: document.getElementById("company-type3")?.value    || "",
+            Message:     document.getElementById("message3")?.value?.trim() || "",
         };
 
         try {
@@ -751,7 +765,7 @@
             if (!ctype.includes("application/json")) {
                 const text = await resp.text();
                 console.error("Non-JSON response:", text.slice(0, 200));
-                window.location.href = "/500.html";
+                showError("Something went wrong on our end. Please email us directly at info@vulturenest.org.");
                 return;
             }
 
@@ -760,13 +774,20 @@
             if (resp.ok && result.success) {
                 showSuccess(result.message || "Message sent successfully.");
                 contactForm.reset();
+                if (companyTypePicker && companyTypeInput) {
+                    companyTypeInput.value = "";
+                    companyTypePicker.querySelectorAll(".single-item").forEach((o) => {
+                        o.classList.remove("active");
+                        o.setAttribute("aria-checked", "false");
+                    });
+                }
             } else {
                 showError(result.message || "Oops! Something went wrong.");
                 if (result.redirect) window.location.href = result.redirect;
             }
         } catch (err) {
             console.error("Fetch error:", err);
-            window.location.href = "/500.html";
+            showError("Could not reach the server. Please check your connection or email us directly at info@vulturenest.org.");
         } finally {
             setLoading(false);
         }

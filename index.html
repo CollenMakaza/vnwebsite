@@ -1007,7 +1007,7 @@
             if (!ctype.includes("application/json")) {
                 const text = await resp.text();
                 console.error("Non-JSON response:", text.slice(0, 200));
-                window.location.href = "/500.html";
+                showError("Something went wrong on our end. Please email us directly at info@vulturenest.org.");
                 return;
             }
 
@@ -1025,7 +1025,7 @@
             }
         } catch (err) {
             console.error("Fetch error:", err);
-            window.location.href = "/500.html";
+            showError("Could not reach the server. Please check your connection or email us directly at info@vulturenest.org.");
         } finally {
             setLoading(false);
         }

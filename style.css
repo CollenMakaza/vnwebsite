@@ -185,3 +185,26 @@ All the SCSS File in SCSS Folder of Assets Folder. You can read the doc file als
   object-fit: contain;
 }
 .blog-1 .blog-inner .single-blog-item .image.proj-logo-dark { background: #10182a; }
+
+/* Contact form: "What's the type of your company?" picker — the theme
+   shipped these as inert divs with no selected/hover state at all. */
+.contact-us-2 .contact-us-inner .contact-left .categories .categories-items .single-item {
+  cursor: pointer;
+  color: var(--text);
+  font-size: 14px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.contact-us-2 .contact-us-inner .contact-left .categories .categories-items .single-item:hover {
+  border-color: var(--theme);
+  color: var(--theme);
+}
+.contact-us-2 .contact-us-inner .contact-left .categories .categories-items .single-item.active {
+  background: var(--theme);
+  border-color: var(--theme);
+  color: var(--white);
+}
+.contact-us-2 .contact-us-inner .contact-left .categories .categories-items .single-item:focus-visible {
+  outline: 2px solid var(--theme);
+  outline-offset: 2px;
+}
