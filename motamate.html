@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<< Header Area >>-->
+
+<head>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Vulture Nest">
+    <meta name="description" content="MotaMate — a garage management platform built by Vulture Nest: a web dashboard for owners, a staff app for the shop floor, and a customer app for car owners.">
+    <!-- ======== Page title ============ -->
+    <title>VULTURE NEST | MOTAMATE</title>
+    <!--<< Favicon >>-->
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <!--<< Bootstrap min.css >>-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!--<< Font Awesome.css >>-->
+    <link rel="stylesheet" href="assets/css/font-awesome.css">
+    <!--<< Animate.css >>-->
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <!--<< Magnific Popup.css >>-->
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <!--<< MeanMenu.css >>-->
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <!--<< Jquery.css >>-->
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <!--<< Swiper Bundle.css >>-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <!--<< Nice Select.css >>-->
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!--<< Style.css >>-->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== MotaMate project page (scoped with the mm- prefix) ===== */
+        .mm-accent { color: #19c40a; }
+
+        .mm-hero {
+            background: var(--header);
+            padding: 60px 0 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .mm-hero .mm-hero-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .mm-hero-content { flex: 1 1 420px; }
+        .mm-hero-logo { max-width: 210px; margin-bottom: 22px; }
+        .mm-hero-content h1 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+        .mm-hero-content p {
+            color: var(--white-3);
+            font-size: 17px;
+            max-width: 560px;
+        }
+        .mm-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 30px; }
+        .mm-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .mm-tag::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #19c40a;
+            display: inline-block;
+        }
+        .mm-hero-image { flex: 1 1 420px; text-align: center; }
+        .mm-hero-image img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+        }
+        .mm-hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+
+        .mm-rule {
+            background: var(--bg);
+            border-left: 4px solid var(--added);
+            border-radius: 8px;
+            padding: 26px 30px;
+            margin: 0 0 10px;
+        }
+        .mm-rule p { margin: 0; color: var(--header); font-size: 17px; font-weight: 600; line-height: 1.6; }
+        .mm-rule span { color: var(--added); }
+
+        .mm-stats { background: var(--header); }
+        .mm-stats .row { text-align: center; }
+        .mm-stat h3 {
+            color: var(--white);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .mm-stat p { color: var(--white-3); font-size: 15px; margin: 0; }
+
+        .mm-surface-card {
+            height: 100%;
+            background: var(--white);
+            border: 1px solid var(--border-2);
+            border-radius: 12px;
+            padding: 34px 28px;
+            transition: all .35s ease;
+        }
+        .mm-surface-card:hover {
+            box-shadow: 0 20px 40px rgba(16,24,97,0.1);
+            transform: translateY(-6px);
+        }
+        .mm-surface-card .mm-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--theme);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .mm-surface-card h4 { color: var(--header); font-size: 21px; font-weight: 700; margin-bottom: 4px; }
+        .mm-surface-card .mm-who {
+            display: inline-block;
+            color: var(--added);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            margin-bottom: 12px;
+        }
+        .mm-surface-card p { color: var(--text); font-size: 15px; margin: 0; }
+
+        .mm-role-card {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 20px;
+            border-radius: 10px;
+            background: var(--white);
+            border: 1px solid var(--border-2);
+            height: 100%;
+        }
+        .mm-role-card .mm-icon {
+            flex: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg);
+            color: var(--theme);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        .mm-role-card h5 { color: var(--header); font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+        .mm-role-card p { color: var(--text); font-size: 14px; margin: 0; line-height: 1.5; }
+
+        .mm-timeline { position: relative; max-width: 820px; margin: 0 auto; }
+        .mm-timeline::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            left: 23px;
+            width: 2px;
+            background: var(--border-2);
+        }
+        .mm-step {
+            position: relative;
+            padding-left: 66px;
+            margin-bottom: 34px;
+        }
+        .mm-step:last-child { margin-bottom: 0; }
+        .mm-step .mm-num {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--theme);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            z-index: 1;
+        }
+        .mm-step h5 {
+            color: var(--header);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .mm-step p { color: var(--text); margin: 0; font-size: 15px; }
+        .mm-step .mm-surface-tag {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            color: var(--theme);
+            background: var(--bg);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .mm-gallery-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border-2);
+            height: 100%;
+        }
+        .mm-gallery-card img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+        .mm-gallery-card .mm-caption {
+            padding: 14px 18px;
+            background: var(--white);
+            color: var(--header);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .mm-cta {
+            background: linear-gradient(90deg, var(--theme) 0%, var(--black-2) 100%);
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        .mm-cta h3 { color: var(--white); font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+        .mm-cta p { color: var(--white-3); max-width: 560px; margin: 0 auto 24px; }
+
+        @media (max-width: 767px) {
+            .mm-hero-content h1 { font-size: 30px; }
+            .mm-stat h3 { font-size: 34px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Back To Top Start -->
+    <div class="scroll-up">
+        <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- Preloader Start -->
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="spinner">
+            </div>
+            <div class="txt-loading">
+                <span data-text-preloader="V" class="letters-loading">
+                    V
+                </span>
+                <span data-text-preloader="U" class="letters-loading">
+                    U
+                </span>
+                <span data-text-preloader="L" class="letters-loading">
+                    L
+                </span>
+                <span data-text-preloader="T" class="letters-loading">
+                    T
+                </span>
+                <span data-text-preloader="U" class="letters-loading">
+                    U
+                </span>
+                <span data-text-preloader="R" class="letters-loading">
+                    R
+                </span>
+                <span data-text-preloader="E" class="letters-loading">
+                    E
+                </span>
+            </div>
+            <p class="text-center">NEST</p>
+        </div>
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-left">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
+                </div>
+                <div class="col-3 loader-section section-right">
+                    <div class="bg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+
+    <!-- Offcanvas Area Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html">
+                                <img src="assets/img/logo/black-logo.png" alt="logo-img">
+                            </a>
+                        </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text d-none d-xl-block">
+                        Nullam dignissim, ante scelerisque the is euismod fermentum odio sem semper the is erat, a
+                        feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
+                    </p>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h4>Contact Info</h4>
+                        <ul>
+                             <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon">
+                                    <i class="fal fa-map-marker-alt"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a target="_blank" href="https://maps.google.com/?q=Harare-Zimbabwe">Harare-Zimbabwe</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fal fa-envelope"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="mailto:admin@vulturenest.org"><span
+                                            >VulturNest.org</span></span>
+                                        </a>
+                                </div>
+                            </li>
+
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="far fa-phone"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="tel:+263783347616">+263 78 334 7616</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="header-button mt-4">
+                            <a href="contact.html" class="theme-btn">
+                                Contact Us
+                            </a>
+                        </div>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://www.linkedin.com/company/vulturenest-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+
+    <!-- Search Area Start -->
+    <div class="search-wrap">
+        <div class="search-inner">
+            <i class="fas fa-times search-close" id="search-close"></i>
+            <div class="search-cell">
+                <form method="get">
+                    <div class="search-field-holder">
+                        <input type="search" class="main-search-input" placeholder="Search...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <!-- Topbar Section Start -->
+
+        <div class="topbar">
+            <div class="container">
+                <div class="topbar-inner d-flex align-items-center justify-content-between">
+                    <ul>
+                        <li>
+                            <i class="fal fa-phone-alt"></i>
+                            <a href="tel:+263 78 334 7616">+263 78 334 7616 </a>
+                        </li>
+                        <li>
+                            <i class="fal fa-map-marker-alt"></i>
+                            <a href="https://maps.google.com/?q=Zimbabwe-Harare">Zimbabwe-Harare</a>
+                        </li>
+
+                    </ul><!-- /.topbar__info -->
+                    <div class="social">
+                        <a href="https://www.linkedin.com/company/vulturenest-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div><!-- /.topbar__inner -->
+            </div><!-- /.container -->
+        </div>
+        <!-- Header Section Start -->
+        <header>
+            <div id="header-sticky" class="header-1">
+                <div class="container">
+                    <div class="mega-menu-wrapper">
+                        <div class="header-main ">
+                            <div class="header-left">
+                                <div class="logo">
+                                    <a href="index.html" class="header-logo">
+                                        <img src="assets/img/logo/black-logo.png" alt="logo-img">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="header-right">
+                                <div class="mean__menu-wrapper">
+                                    <div class="main-menu">
+                                        <nav id="mobile-menu">
+                                            <ul>
+                                                <li class="has-dropdown active menu-thumb">
+                                                    <a href="index.html">
+                                                        <b>Home</b>
+
+                                                    </a>
+
+                                                </li>
+                                                <li class="has-dropdown active d-xl-none">
+                                                    <a href="#" class="border-none">
+                                                        Home
+
+                                                    </a>
+
+                                                </li>
+                                                <li>
+                                                    <a href="about.html">
+                                                        About
+                                                    </a>
+                                                </li>
+                                                <li class="has-dropdown">
+                                                    <a href="services-details.html">
+                                                        Services
+                                                    </a>
+                                                    <ul class="submenu">
+                                                        <li><a href="it-management.html">IT Management</a></li>
+                                                        <li><a href="cloud-services.html">Cloud Services</a></li>
+                                                        <li><a href="business-it-consultancy.html">Business and IT Consultancy</a></li>
+                                                        <li><a href="artificial-intelligence.html">Artificial Intelligence</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="has-dropdown">
+                                                    <a href="projects-details.html">
+                                                        Projects
+
+                                                    </a>
+                                                    <ul class="submenu">
+                                                        <li><a href="motamate.html">Mota Mate</a></li>
+                                                        <li><a href="miride.html">MiRide</a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li>
+                                                    <a href="contact.html">Contact</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <a href="#0" class="search-trigger search-icon"></a>
+                                <div class="header-button  d-none d-sm-block">
+                                    <a href="contact.html" class="theme-btn black-btn">
+                                        Get In Touch
+                                    </a>
+                                </div>
+                                <div class="header__hamburger d-xl-none my-auto">
+                                    <div class="sidebar__toggle">
+                                        <i class="fas fa-bars"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!--<< Breadcrumb Section Start >>-->
+        <div class="breadcrumb-wrapper bg-cover" style="background-image: url('assets/img/breadcrumb.jpg');">
+            <div class="container">
+                <div class="page-heading">
+                    <div class="breadcrumb-sub-title">
+                        <h1 class="wow fadeInUp" data-wow-delay=".3s">MotaMate</h1>
+                        <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+                            <li>
+                                <a href="index.html">
+                                    Home
+                                </a>
+                            </li>
+                            <li>
+                                <i class="far fa-angle-double-right"></i>
+                            </li>
+                            <li>
+                                <a href="projects-details.html">Projects</a>
+                            </li>
+                            <li>
+                                <i class="far fa-angle-double-right"></i>
+                            </li>
+                            <li>
+                                MotaMate
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MotaMate Hero Start -->
+        <section class="mm-hero">
+            <div class="container">
+                <div class="mm-hero-inner section-padding">
+                    <div class="mm-hero-content">
+                        <img class="mm-hero-logo" src="assets/img/mota-mate/motamate-logo.png" alt="MotaMate logo">
+                        <h1>A garage, run from three connected apps</h1>
+                        <p>
+                            MotaMate is a garage management platform designed and built by
+                            <strong class="mm-accent">Vulture Nest</strong>. It gives owners a dashboard to run the
+                            business, gives front-desk staff and technicians a phone-based tool for the shop floor,
+                            and gives car owners an app to book, track and approve their own service — all three
+                            talking to the same job, in real time.
+                        </p>
+                        <div class="mm-tags">
+                            <span class="mm-tag">Web Dashboard</span>
+                            <span class="mm-tag">Staff App</span>
+                            <span class="mm-tag">Customer App</span>
+                        </div>
+                        <div class="mm-hero-buttons">
+                            <a href="contact.html" class="theme-btn">Start a Project Like This</a>
+                            <a href="projects-details.html" class="theme-btn trasparent-btn" style="border-color:rgba(255,255,255,0.35); color:#fff;">Back to Projects</a>
+                        </div>
+                    </div>
+                    <div class="mm-hero-image">
+                        <img src="assets/img/mota-mate/motamate-dashboard-preview.jpeg" alt="MotaMate branding shown on a vehicle's in-car display">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- MotaMate Hero End -->
+
+        <!-- Golden Rule Start -->
+        <section class="section-padding pb-0">
+            <div class="container">
+                <div class="mm-rule wow fadeInUp" data-wow-delay=".2s">
+                    <p>
+                        <span>Golden rule:</span> the web dashboard runs the garage. The staff app is for the shop
+                        floor and front desk, at the car. The customer app is for the car owner.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Start -->
+        <section class="mm-stats section-padding">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-6 col-lg-3 mm-stat wow fadeInUp" data-wow-delay="100ms">
+                        <h3><span class="count">3</span></h3>
+                        <p>Apps, one platform</p>
+                    </div>
+                    <div class="col-6 col-lg-3 mm-stat wow fadeInUp" data-wow-delay="200ms">
+                        <h3><span class="count">7</span></h3>
+                        <p>Staff roles, each with their own view</p>
+                    </div>
+                    <div class="col-6 col-lg-3 mm-stat wow fadeInUp" data-wow-delay="300ms">
+                        <h3><span class="count">43</span></h3>
+                        <p>Point pre-repair checklist, with photos</p>
+                    </div>
+                    <div class="col-6 col-lg-3 mm-stat wow fadeInUp" data-wow-delay="400ms">
+                        <h3><span class="count">9</span></h3>
+                        <p>Job stages tracked, booking to paid</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Three Surfaces Start -->
+        <section class="section-padding pt-0">
+            <div class="container">
+                <div class="section-title text-center">
+                    <div class="sub-title"><span>THREE APPS, ONE JOB</span></div>
+                    <h2 class="split-text left">Every person on the job gets the right tool</h2>
+                </div>
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="mm-surface-card">
+                            <div class="mm-icon"><i class="flaticon-web-development"></i></div>
+                            <span class="mm-who">Owner · Manager · Advisor · Cashier · Storekeeper</span>
+                            <h4>Web Dashboard</h4>
+                            <p>Runs the garage: branches, staff, customers, job cards, quotes, invoices, inventory
+                                and reports, all from a browser.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="mm-surface-card">
+                            <div class="mm-icon"><i class="flaticon-mobile-app"></i></div>
+                            <span class="mm-who">Service Advisor · Technicians</span>
+                            <h4>Staff App</h4>
+                            <p>The shop floor tool: photo walk-around checklists at the car for the front desk, and
+                                each technician's own assigned jobs.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="mm-surface-card">
+                            <div class="mm-icon"><i class="flaticon-customer-support"></i></div>
+                            <span class="mm-who">The car owner</span>
+                            <h4>Customer App</h4>
+                            <p>Register, add a vehicle, book a service, watch the job move stage by stage, and
+                                approve the quote before work starts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Three Surfaces End -->
+
+        <!-- How It Works Start -->
+        <section class="section-padding section-bg">
+            <div class="container">
+                <div class="section-title text-center">
+                    <div class="sub-title"><span>HOW MOTAMATE WORKS</span></div>
+                    <h2 class="split-text right">From booking to paid, in six steps</h2>
+                </div>
+                <div class="mm-timeline mt-5">
+                    <div class="mm-step wow fadeInUp" data-wow-delay="100ms">
+                        <div class="mm-num">1</div>
+                        <h5>Vulture Nest onboards the garage</h5>
+                        <p>The garage's account, first branch and owner login are created and handed over — no
+                            self-signup, so every garage starts from a clean, correct setup.</p>
+                    </div>
+                    <div class="mm-step wow fadeInUp" data-wow-delay="150ms">
+                        <div class="mm-num">2</div>
+                        <h5>The owner sets up the garage</h5>
+                        <p>Branches, staff and roles, and parts pricing are added on the web dashboard, so the team
+                            is ready to take work.</p>
+                        <span class="mm-surface-tag">Web Dashboard</span>
+                    </div>
+                    <div class="mm-step wow fadeInUp" data-wow-delay="200ms">
+                        <div class="mm-num">3</div>
+                        <h5>The customer books a service</h5>
+                        <p>Choose the vehicle, branch, service type and time slot from their phone — the request
+                            lands straight on the garage's Bookings screen.</p>
+                        <span class="mm-surface-tag">Customer App</span>
+                    </div>
+                    <div class="mm-step wow fadeInUp" data-wow-delay="250ms">
+                        <div class="mm-num">4</div>
+                        <h5>Front desk checks the car in</h5>
+                        <p>Checking in turns the booking into a job card, then the advisor walks the car with a
+                            phone, ticking off a photo-backed pre-repair checklist.</p>
+                        <span class="mm-surface-tag">Staff App</span>
+                    </div>
+                    <div class="mm-step wow fadeInUp" data-wow-delay="300ms">
+                        <div class="mm-num">5</div>
+                        <h5>The work is quoted, approved and assigned</h5>
+                        <p>The advisor prices parts and labour and sends a quote; the customer approves it in-app; a
+                            technician is assigned and gets to work on their own job list.</p>
+                        <span class="mm-surface-tag">Web + Customer + Staff App</span>
+                    </div>
+                    <div class="mm-step wow fadeInUp" data-wow-delay="350ms">
+                        <div class="mm-num">6</div>
+                        <h5>The job is finished, invoiced and paid</h5>
+                        <p>The job moves through quality check to ready-for-invoice, the cashier takes payment, and
+                            the customer watches the whole timeline from their phone.</p>
+                        <span class="mm-surface-tag">Web Dashboard</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- How It Works End -->
+
+        <!-- Roles Start -->
+        <section class="section-padding pb-0">
+            <div class="container">
+                <div class="section-title text-center">
+                    <div class="sub-title"><span>THE CAST</span></div>
+                    <h2 class="split-text left">One role, one clear job</h2>
+                    <p class="text-center mt-3">
+                        When an owner adds a staff member, they pick a single role — it decides exactly what that
+                        person can see and do, on the dashboard and on the staff app.
+                    </p>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-strategy"></i></div>
+                            <div><h5>Owner</h5><p>Everything, including Settings, reports and approvals.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="150ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-management"></i></div>
+                            <div><h5>Manager</h5><p>Day-to-day operations, most screens, approvals.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-customer-support"></i></div>
+                            <div><h5>Service Advisor</h5><p>Customers, vehicles, check-ins, job cards, checklists, quotes.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="250ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-engineering"></i></div>
+                            <div><h5>Foreman</h5><p>Assigns work, moves jobs through stages, quality sign-off.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-maintenance"></i></div>
+                            <div><h5>Technician</h5><p>Their assigned jobs and checklists, on the staff app.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="150ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-wallet"></i></div>
+                            <div><h5>Cashier</h5><p>Opens/closes the till, raises invoices, takes payments.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-collection"></i></div>
+                            <div><h5>Storekeeper</h5><p>Inventory: parts and prices, stock, purchase orders.</p></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="250ms">
+                        <div class="mm-role-card">
+                            <div class="mm-icon"><i class="flaticon-lock"></i></div>
+                            <div><h5>Scoped by design</h5><p>Every garage only ever sees its own data — never another garage's.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Roles End -->
+
+        <!-- Brand Gallery Start -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-title text-center">
+                    <div class="sub-title"><span>BRAND IDENTITY</span></div>
+                    <h2 class="split-text right">Built and branded by Vulture Nest</h2>
+                </div>
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="mm-gallery-card">
+                            <img src="assets/img/mota-mate/motamate-logo-dark.jpeg" alt="MotaMate wordmark logo">
+                            <div class="mm-caption">MotaMate wordmark</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="mm-gallery-card">
+                            <img src="assets/img/mota-mate/motamate-branded-polo.jpeg" alt="MotaMate branded team polo shirt">
+                            <div class="mm-caption">Team apparel</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="mm-gallery-card">
+                            <img src="assets/img/mota-mate/motamate-branded-cap.jpeg" alt="MotaMate branded cap">
+                            <div class="mm-caption">Merch</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Brand Gallery End -->
+
+        <!-- CTA Start -->
+        <section class="section-padding pt-0">
+            <div class="container">
+                <div class="mm-cta wow fadeInUp" data-wow-delay="200ms">
+                    <h3>Want a platform like MotaMate for your business?</h3>
+                    <p>We design and build multi-app platforms — web dashboards, staff tools and customer apps —
+                        tailored to how your business actually runs.</p>
+                    <a href="contact.html" class="theme-btn">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+        <!-- CTA End -->
+
+        <!-- Footer Section Start -->
+        <footer class="footer-wrapper section-bg-2 section-padding pb-0">
+            <div class="container">
+                <div class="footer-widgets-1 style-2  section-padding">
+                    <div class="row g-5">
+                        <div class="col-xl-3 col-lg-6 pe-xxl-0 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="single-footer-widget">
+                                <div class="widget-head">
+                                    <a href="index.html">
+                                        <img src="assets/img/logo/white-logo.png" alt="logo-img">
+                                    </a>
+                                </div>
+                                <div class="footer-content">
+                                    <p>
+                                      Vulture Nest empowers businesses with smart
+                                      technology solutions, driving growth through innovation,
+                                       cloud technologies, and automation.
+                                    </p>
+                                    <h5>Subscribe Now</h5>
+                                    <div class="footer-input border-radius-none">
+                                        <input type="email" id="email2" placeholder="Your Email">
+                                        <button class="newsletter-btn border-radius-none" type="submit">
+                                            <i class="fab fa-telegram-plane"></i>
+                                        </button>
+                                    </div>
+                                    <div class="social-icon d-flex align-items-center">
+                                      <a href="https://www.linkedin.com/company/vulturenest-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 wow fadeInUp" data-wow-delay="600ms">
+                            <div class="single-footer-widget ms-xxl-4 ps-xxl-3">
+                                <div class="widget-head">
+                                    <h4>Our Services</h4>
+                                </div>
+                                <ul class="lisarea">
+                                    <li>
+                                        <a href="contact.html">
+                                            <i class="fas fa-circle"></i>
+                                            Blockchain technology
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">
+                                            <i class="fas fa-circle"></i>
+                                            Advanced Technology
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">
+                                            <i class="fas fa-circle"></i>
+                                            Infrastructure Technology
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">
+                                            <i class="fas fa-circle"></i>
+                                            Data Management
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">
+                                            <i class="fas fa-circle"></i>
+                                            Security Management
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 wow fadeInUp" data-wow-delay="600ms">
+                            <div class="single-footer-widget ms-xxl-3">
+                                <div class="widget-head">
+                                    <h4>Contact Us</h4>
+                                </div>
+                                <div class="footer-content">
+                                     <div class="contact-info-area">
+                                        <div class="contact">
+                                            <a class="you" href="mailto:admin@vulturenest.org"><i class="flaticon-email"></i></a>
+                                            <div class="contact-infu">
+                                                <span>
+                                                    Mail Us:
+                                                </span>
+                                                <a href="mailto:admin@vulturenest.org">
+                                                    <h5 class="">VultureNest.org</h5>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="contact">
+                                            <a class="you" href="https://maps.google.com/?q=harare-zimbabwe"><i class="fal fa-map-marker-alt"></i></a>
+                                            <div class="contact-infu">
+                                                <span>
+                                                    Address:
+                                                </span>
+                                                <a href="https://maps.google.com/?q=harare-zimbabwe" target="_blank">
+                                                    <h5 >Harare-Zimbabwe
+                                                    </h5>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="contact">
+                                            <a class="you" href="tel:+1234567890"><i class="fal fa-phone-alt"></i></a>
+                                            <div class="contact-infu">
+                                                <span>
+                                                    Phone:
+                                                </span>
+                                                <a href="tel:+263783347616">
+                                                <h5>+263 78 334 7616</h5>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 wow fadeInUp" data-wow-delay="800ms">
+                            <div class="single-footer-widget ms-xxl-5">
+                                <div class="widget-head">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom style-2">
+                <div class="container">
+                    <div class="footer-bottom-wrapper d-flex align-items-center justify-content-between">
+                        <p>
+                            Copyright 2026 VULTURE<span class="nest">NEST</span> All Rights Reserved
+                        </p>
+                        <div class="security ">
+                            <a href="contact.html">Privacy policy</a>
+                            /
+                            <a href="contact.html">Terms & Condition </a>
+                            /
+                            <a href="about.html"> About Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!--<< All JS Plugins >>-->
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <!--<< Jquery ui Js >>-->
+    <script src="assets/js/jquery-ui.js"></script>
+    <!--<< Imagesloaded Js >>-->
+    <script src="assets/js/imagesloaded.min.js"></script>
+    <!--<< Viewport Js >>-->
+    <script src="assets/js/viewport.jquery.js"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <!--<< Gsap Js >>-->
+    <script src="assets/js/gsap/gsap.js"></script>
+    <!--<< Gsap Scroll To Pluging Js >>-->
+    <script src="assets/js/gsap/gsap-scroll-to-plugin.js"></script>
+    <!--<< Gsap Scroll Smoother Js >>-->
+    <script src="assets/js/gsap/gsap-scroll-smoother.js"></script>
+    <!--<< Gsap Scroll Trigger Js >>-->
+    <script src="assets/js/gsap/gsap-scroll-trigger.js"></script>
+    <!--<< Gsap Split Text Js >>-->
+    <script src="assets/js/gsap/gsap-split-text.js"></script>
+    <!--<< Gsap zotect Js >>-->
+    <script src="assets/js/gsap/gsap-zotect.js"></script>
+    <!--<< Nice Select Js >>-->
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <!--<< Isotope Js >>-->
+    <script src="assets/js/isotope.js"></script>
+    <!--<< Waypoints Js >>-->
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <!--<< Counterup Js >>-->
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <!--<< appear Js >>-->
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <!--<< Ajax Js >>-->
+    <script src="assets/js/ajax-mail.js"></script>
+    <!--<< Swiper Slider Js >>-->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="assets/js/wow.min.js"></script>
+    <!--<< Main.js >>-->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

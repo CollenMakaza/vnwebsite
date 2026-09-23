@@ -2,17 +2,15 @@
 <html lang="en">
 <!--<< Header Area >>-->
 
-
-<!-- Mirrored from modinatheme.com/html/zotech/projects-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 13:11:47 GMT -->
 <head>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="modinatheme">
-    <meta name="description" content="Zotech - IT Solutions & Technology HTML Template">
+    <meta name="author" content="Vulture Nest">
+    <meta name="description" content="IT Management services from Vulture Nest: managed support, network administration, systems monitoring, infrastructure planning and disaster recovery.">
     <!-- ======== Page title ============ -->
-    <title>VULTURE NEST PROJECTS</title>
+    <title>VULTURE NEST | IT MANAGEMENT</title>
     <!--<< Favicon >>-->
     <link rel="shortcut icon" href="assets/img/favicon.ico">
     <!--<< Bootstrap min.css >>-->
@@ -35,6 +33,42 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <!--<< Style.css >>-->
     <link rel="stylesheet" href="style.css">
+    <style>
+        .service-details-wrapper .service-details-image img {
+            width: 100% !important;
+            height: 420px !important;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 16px;
+        }
+        @media (max-width: 575px) {
+            .service-details-wrapper .service-details-image img {
+                height: 260px !important;
+            }
+        }
+        .service-details-content .video-image img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+        .service-details-content .list {
+            margin-top: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px 60px;
+            flex-wrap: wrap;
+        }
+        .service-details-content .list ul li {
+            color: var(--text);
+            font-weight: 500;
+            padding-bottom: 12px;
+        }
+        .service-details-content .list ul li i {
+            padding-right: 6px;
+            color: var(--theme-2);
+        }
+    </style>
 </head>
 
 <body>
@@ -45,7 +79,6 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
-
 
     <!-- Preloader Start -->
     <div id="preloader" class="preloader">
@@ -115,10 +148,6 @@
                             </button>
                         </div>
                     </div>
-                    <p class="text d-none d-xl-block">
-                        Nullam dignissim, ante scelerisque the is euismod fermentum odio sem semper the is erat, a
-                        feugiat leo urna eget eros. Duis Aenean a imperdiet risus.
-                    </p>
                     <div class="mobile-menu fix mb-3"></div>
                     <div class="offcanvas__contact">
                         <h4>Contact Info</h4>
@@ -141,7 +170,7 @@
                                         </a>
                                 </div>
                             </li>
-                           
+
                             <li class="d-flex align-items-center">
                                 <div class="offcanvas__contact-icon mr-15">
                                     <i class="far fa-phone"></i>
@@ -181,25 +210,24 @@
     </div>
 
     <div class="page-wrapper">
-        <!-- Topbar Section Start -->
 
+        <!-- Topbar Section Start -->
         <div class="topbar">
             <div class="container">
                 <div class="topbar-inner d-flex align-items-center justify-content-between">
                     <ul>
                         <li>
                             <i class="fal fa-phone-alt"></i>
-                            <a href="tel:+263 78 334 7616">+263 78 334 7616 </a>
+                            <a href="tel:+263783347616">+263 78 334 7616</a>
                         </li>
                         <li>
                             <i class="fal fa-map-marker-alt"></i>
-                            <a href="https://maps.google.com/?q=Zimbabwe-Harare">Zimbabwe-Harare</a>
+                            <a href="https://maps.google.com/?q=Zimbabwe-Harare">Harare-Zimbabwe</a>
                         </li>
-                        
+
                     </ul><!-- /.topbar__info -->
                     <div class="social">
-                        
-                        <a href="https://www.linkedin.com/company/vulturenest-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                           <a href="https://www.linkedin.com/company/vulturenest-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                     </div>
 
                 </div><!-- /.topbar__inner -->
@@ -227,21 +255,22 @@
                                                 <li class="has-dropdown active menu-thumb">
                                                     <a href="index.html">
                                                         <b>Home</b>
-                                                        
+
                                                     </a>
-                                                    
+
                                                 </li>
                                                 <li class="has-dropdown active d-xl-none">
                                                     <a href="#" class="border-none">
                                                         Home
-                                                       
+
                                                     </a>
-                                                    
+
                                                 </li>
                                                 <li>
-                                                    <a href="about.html">About</a>
+                                                    <a href="about.html">
+                                                        About
+                                                    </a>
                                                 </li>
-                                                
                                                 <li class="has-dropdown">
                                                     <a href="services-details.html">
                                                         Services
@@ -254,19 +283,24 @@
                                                     </ul>
                                                 </li>
                                                 <li class="has-dropdown">
-                                                    <a href="contact.html">
-                                                        Contact
-                                                       
+                                                    <a href="projects-details.html">
+                                                        Projects
+
                                                     </a>
-                                                   
+                                                    <ul class="submenu">
+                                                        <li><a href="motamate.html">Mota Mate</a></li>
+                                                        <li><a href="miride.html">MiRide</a></li>
+                                                    </ul>
                                                 </li>
-                                               
-                                                
+
+                                                <li>
+                                                    <a href="contact.html">Contact</a>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </div>
                                 </div>
-                                <a href="#0" class="search-trigger search-icon"></a>
+
                                 <div class="header-button  d-none d-sm-block">
                                     <a href="contact.html" class="theme-btn black-btn">
                                         Get In Touch
@@ -290,7 +324,7 @@
             <div class="container">
                 <div class="page-heading">
                     <div class="breadcrumb-sub-title">
-                        <h1 class="wow fadeInUp" data-wow-delay=".3s">Projects Details</h1>
+                        <h1 class="wow fadeInUp" data-wow-delay=".3s">IT Management</h1>
                         <ul class="breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
                             <li>
                                 <a href="index.html">
@@ -301,7 +335,13 @@
                                 <i class="far fa-angle-double-right"></i>
                             </li>
                             <li>
-                                Projects Details
+                                <a href="services-details.html">Services</a>
+                            </li>
+                            <li>
+                                <i class="far fa-angle-double-right"></i>
+                            </li>
+                            <li>
+                                IT Management
                             </li>
                         </ul>
                     </div>
@@ -309,88 +349,64 @@
             </div>
         </div>
 
-        <!-- Project Section Start -->
-        <section class="project-details-section fix section-padding">
+        <!-- service Section Start -->
+        <section class="service-details-section fix section-padding">
             <div class="container">
-                <div class="project-details-wrapper">
-                    <div class="row g-4">
-                        <div class="col-xxl-8 col-lg-12">
-                            <div class="project-details-content pe-xl-4">
-                                <div class="project-details-image">
-                                    <img src="assets/img/case/details-1.jpg" alt="img">
-                                </div>
-                                <h3 class="mt-4">MTN South Africa</h3>
-                                <p class="mb-3">
-                                    Accelerate innovation with world-class tech teams We’ll match you to an entire
-                                    remote team of incredible freelance talent for all your software development needs.
-                                </p>
-                                <p>
-                                    Building a powerful brand is essential to standing out in today's competitive
-                                    market. Our Brand Development service focuses on crafting a unique identity that
-                                    resonates with your target audience, strengthens your brand’s presence, and drives
-                                    long-term success. We dive deep into understanding your business values, vision, and
-                                    goals to create a brand that reflects your core essence. Contact us today to
-                                    schedule a free consultation!
-                                </p>
-                                <div class="row ">
-                                    <div class="col-lg-6">
-                                        <div class="image">
-                                            <img src="assets/img/case/details-2.jpg" alt="">
-                                        </div>
-                                        <h4 class="mt-4">HISP South Africa</h4>
-                                <p class="mb-3 mt-3">
-                                    We denounce with righteous indige nation and dislike men who are so beguiled and
-                                    demo realized by the charms of pleasure of the moment, so blinded by desire, that
-                                    they cannot foresee the pain and trouble that are bound to ensue cannot foresee.
-                                    These cases are perfectly simple and easy to distinguish. In a free hour, when our
-                                    power of choice is untrammelled.
-                                </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="image">
-                                            <img src="assets/img/case/details-3.jpg" alt="">
-                                        </div>
-                                        <h4 class="mt-4">Telemedico Health Systems</h4>
-                                <p class="mb-3 mt-3">
-                                    We denounce with righteous indige nation and dislike men who are so beguiled and
-                                    demo realized by the charms of pleasure of the moment, so blinded by desire, that
-                                    they cannot foresee the pain and trouble that are bound to ensue cannot foresee.
-                                    These cases are perfectly simple and easy to distinguish. In a free hour, when our
-                                    power of choice is untrammelled.
-                                </p>
-                                    </div>
-                                </div>
-                                
-                                <div class="list">
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i>Managed IT Services
-                                        </li>
-                                        <li><i class="fas fa-check-circle"></i>60+ Remove background/mon
-                                        </li>
-                                        <li><i class="fas fa-check-circle"></i>Data Backup Recovery
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i>New had happen unable uneasy
-                                        </li>
-                                        <li><i class="fas fa-check-circle"></i> Drawings can followed improved out
-                                            sociable not
-                                        </li>
-                                        <li><i class="fas fa-check-circle"></i>Comparison new ham melancholy son
-                                            themselves.
-                                        </li>
-                                    </ul>
-
-                                </div>
+                <div class="service-details-wrapper">
+                    <div class="row g-5 justify-content-center">
+                        <div class="section-title text-center">
+                            <div class="sub-title"><span>IT MANAGEMENT</span></div>
+                            <h2>IT Management That Keeps Your Business Running</h2>
+                            <p>Turn technology into a strategic advantage. Our tailored IT management keeps your systems reliable, secure and ready to scale, so your team can focus on the work that matters.</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="service-details-image">
+                                <img src="assets/img/case/02.jpg" alt="IT Management">
                             </div>
                         </div>
-                        
-                                <div class="social-icon ">
-                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-dribbble"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <div class="col-lg-10">
+                            <div class="service-details-content">
+                                <h4>Proactive IT Management for Growing Businesses</h4>
+                                <p class="mt-3">
+                                    Downtime, slow networks and unmanaged infrastructure quietly cost businesses time and money. Our IT management service takes that burden off your team, giving you a dedicated partner who monitors, maintains and improves your technology around the clock.
+                                </p>
+                                <p class="mt-3">
+                                    From day-to-day helpdesk support to long-term infrastructure planning, we manage the full lifecycle of your IT environment. Every engagement is built around your business, not a one-size-fits-all package, so the systems you rely on stay dependable as you grow.
+                                </p>
+                                <div class="list">
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i>Managed IT support & helpdesk</li>
+                                        <li><i class="fas fa-check-circle"></i>Network design, setup & administration</li>
+                                        <li><i class="fas fa-check-circle"></i>Systems monitoring & proactive maintenance</li>
+                                    </ul>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i>IT infrastructure planning & upgrades</li>
+                                        <li><i class="fas fa-check-circle"></i>Vendor & asset management</li>
+                                        <li><i class="fas fa-check-circle"></i>Data backup & disaster recovery</li>
+                                    </ul>
+                                </div>
+                                <div class="service-details-video">
+                                    <div class="row g-4">
+                                        <div class="col-lg-6">
+                                            <div class="video-image pe-xxl-5">
+                                                <img src="assets/img/why-choose/02.png" alt="IT Management">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="details-video-content ">
+                                                <div class="section-title">
+                                                    <h2>Visibility into every system, all the time</h2>
+                                                    <p class="pt-4">Real-time monitoring and reporting mean issues get caught before they become outages — so your business keeps running.</p>
+                                                </div>
+                                                <div class="about-infu mt-4">
+                                                    <a href="contact.html" class="theme-btn black-btn">
+                                                        Get In Touch
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -398,9 +414,104 @@
             </div>
         </section>
 
-      
 
-         <!-- Footer Section Start -->
+        <!-- Process Section Start -->
+        <section class="process-wrapper process-2 section-padding section-bg">
+            <div class="container">
+                <div class="section-title text-center">
+                    <div class="sub-title"><span>HOW WE WORK</span></div>
+                    <h2 class="split-text right">Our Working Process in 4 Steps</h2>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="signle-process-item pe-xl-4">
+                            <img class="shape-1" src="assets/img/process/shape-6.png" alt="">
+                            <div class="icons">
+                                <div class="icon-1"><i class="flaticon-conversation"></i></div>
+                                <div class="icon-2">01</div>
+                            </div>
+                            <h4 class="mb-2">Project Discussion</h4>
+                            <p>talk about your project and explore how the right technology solutions
+                                can bring your ideas to life and move your business forward</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mt-xl-5  wow fadeInUp" data-wow-delay="400ms">
+                        <div class="signle-process-item pe-xl-3 ps-xl-2 ">
+                            <img class="shape-2" src="assets/img/process/shape-7.png" alt="">
+                            <div class="icons">
+                                <div class="icon-1"><i class="flaticon-cms"></i></div>
+                                <div class="icon-2">02</div>
+                            </div>
+                            <h4 class="mb-2">Testing & Trying</h4>
+                            <p>We test and refine your technology to ensure reliable performance and a seamless user experience</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6  wow fadeInUp" data-wow-delay="600ms">
+                        <div class="signle-process-item ps-xl-3 pe-xl-2">
+                            <img class="shape-1" src="assets/img/process/shape-6.png" alt="">
+                            <div class="icons">
+                                <div class="icon-1"><i class="flaticon-maintenance"></i></div>
+                                <div class="icon-2">03</div>
+                            </div>
+                            <h4 class="mb-2">Execute & Install</h4>
+                            <p>We deploy and implement your technology solutions smoothly, ensuring everything runs efficiently from day one..</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-md-6 mt-xl-5  wow fadeInUp" data-wow-delay="400ms">
+                        <div class="signle-process-item ps-xl-4">
+                            <div class="icons">
+                                <div class="icon-1"><i class="flaticon-positive-review"></i></div>
+                                <div class="icon-2">04</div>
+                            </div>
+                            <h4 class="mb-2">Review & Fixing</h4>
+                            <p>We analyze, troubleshoot, and resolve issues to keep your technology running reliably and efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Services Start -->
+        <section class="section-padding pt-0">
+            <div class="container">
+                <div class="section-title text-center">
+                    <div class="sub-title"><span>EXPLORE MORE</span></div>
+                    <h2 class="split-text left">Other Services We Offer</h2>
+                </div>
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="single-feature-item" style="border:1px solid var(--border-2); border-radius:12px; padding:34px 28px;">
+                            <div class="icon">
+                                <i class="flaticon-mobile-app"></i>
+                            </div>
+                            <h4><a href="cloud-services.html">Cloud Services</a></h4>
+                            <p>Flexible cloud infrastructure built to scale with your business.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="single-feature-item" style="border:1px solid var(--border-2); border-radius:12px; padding:34px 28px;">
+                            <div class="icon">
+                                <i class="flaticon-cms"></i>
+                            </div>
+                            <h4><a href="business-it-consultancy.html">Business and IT Consultancy</a></h4>
+                            <p>Strategic insights that align technology with business goals.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="single-feature-item" style="border:1px solid var(--border-2); border-radius:12px; padding:34px 28px;">
+                            <div class="icon">
+                                <i class="flaticon-graphic-design"></i>
+                            </div>
+                            <h4><a href="artificial-intelligence.html">Artificial Intelligence</a></h4>
+                            <p>AI-driven solutions built for performance and precision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Other Services End -->
+
+        <!-- Footer Section Start -->
         <footer class="footer-wrapper section-bg-2 section-padding pb-0">
             <div class="container">
                 <div class="footer-widgets-1 style-2  section-padding">
@@ -414,9 +525,10 @@
                                 </div>
                                 <div class="footer-content">
                                     <p>
-                                      Vulture Nest empowers businesses with smart 
-                                      technology solutions, driving growth through innovation,
-                                       cloud technologies, and automation.
+                                      Vulture Nest delivers innovative technology services,
+                                      including IT management, cloud solutions, AI, data security,
+                                      and consultancy—helping businesses operate
+                                      smarter and grow faster.
                                     </p>
                                     <h5>Subscribe Now</h5>
                                     <div class="footer-input border-radius-none">
@@ -426,7 +538,7 @@
                                         </button>
                                     </div>
                                     <div class="social-icon d-flex align-items-center">
-                                      <a href="https://www.linkedin.com/company/vulturenest-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                                         <a href="https://www.linkedin.com/company/vulturenest-tech/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -438,33 +550,27 @@
                                 </div>
                                 <ul class="lisarea">
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="it-management.html">
                                             <i class="fas fa-circle"></i>
-                                            Blockchain technology
+                                            IT Management
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="cloud-services.html">
                                             <i class="fas fa-circle"></i>
-                                            Advanced Technology
+                                            Cloud Services
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="business-it-consultancy.html">
                                             <i class="fas fa-circle"></i>
-                                            Infrastructure Technology
+                                            Business and IT Consultancy
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <a href="artificial-intelligence.html">
                                             <i class="fas fa-circle"></i>
-                                            Data Management
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="contact.html">
-                                            <i class="fas fa-circle"></i>
-                                            Security Management
+                                            Artificial Intelligence
                                         </a>
                                     </li>
                                 </ul>
@@ -518,12 +624,13 @@
                         <div class="col-xl-3 col-lg-6 wow fadeInUp" data-wow-delay="800ms">
                             <div class="single-footer-widget ms-xxl-5">
                                 <div class="widget-head">
-                                    
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="footer-bottom style-2">
                 <div class="container">
                     <div class="footer-bottom-wrapper d-flex align-items-center justify-content-between">
@@ -544,13 +651,8 @@
 
     </div>
 
-
-
-
-
-
     <!--<< All JS Plugins >>-->
-    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!--<< Jquery ui Js >>-->
     <script src="assets/js/jquery-ui.js"></script>
     <!--<< Imagesloaded Js >>-->
@@ -593,9 +695,6 @@
     <script src="assets/js/wow.min.js"></script>
     <!--<< Main.js >>-->
     <script src="assets/js/main.js"></script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v67327c56f0bb4ef8b305cae61679db8f1769101564043" integrity="sha512-rdcWY47ByXd76cbCFzznIcEaCN71jqkWBBqlwhF1SY7KubdLKZiEGeP7AyieKZlGP9hbY/MhGrwXzJC/HulNyg==" data-cf-beacon='{"version":"2024.11.0","token":"90f7972af14a48b4add7da2b74f5d675","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 
-
-<!-- Mirrored from modinatheme.com/html/zotech/projects-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 13:11:50 GMT -->
 </html>

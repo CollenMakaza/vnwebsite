@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%23128207%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2254%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2258%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%220%22%3EM%3C%2Ftext%3E%3C%2Fsvg%3E">
+<title>MotaMate Privacy Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #F6F7F5;
+    --surface: #FFFFFF;
+    --surface-2: #EEF0EC;
+    --text: #1B1F1A;
+    --text-muted: #5C6358;
+    --text-faint: #8D948A;
+    --border: #DEE2DA;
+    --accent: #19C40A;
+    --accent-strong: #128207;
+    --accent-soft: #E9F9E6;
+    --accent-soft-border: #C8EEC2;
+    --danger: #B3421F;
+    --shadow: 0 1px 2px rgba(16,20,12,0.05), 0 8px 24px rgba(16,20,12,0.07);
+    --focus: #19C40A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0C0F0B;
+      --surface: #141810;
+      --surface-2: #1A2015;
+      --text: #EAF0E6;
+      --text-muted: #9FAA97;
+      --text-faint: #6E7869;
+      --border: #2A3324;
+      --accent: #3FE82C;
+      --accent-strong: #7DF470;
+      --accent-soft: #16240F;
+      --accent-soft-border: #234A1C;
+      --danger: #E2685D;
+      --shadow: 0 1px 2px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.4);
+      --focus: #3FE82C;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0C0F0B;
+    --surface: #141810;
+    --surface-2: #1A2015;
+    --text: #EAF0E6;
+    --text-muted: #9FAA97;
+    --text-faint: #6E7869;
+    --border: #2A3324;
+    --accent: #3FE82C;
+    --accent-strong: #7DF470;
+    --accent-soft: #16240F;
+    --accent-soft-border: #234A1C;
+    --danger: #E2685D;
+    --shadow: 0 1px 2px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.4);
+    --focus: #3FE82C;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent-strong); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Lexend', system-ui, sans-serif;
+    color: var(--text);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 268px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    padding: 28px 22px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand img { height: 28px; width: auto; display: block; }
+  .brand .full-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  nav.toc {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+  }
+  nav.toc .toc-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0 0 8px 10px;
+  }
+  nav.toc a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    line-height: 1.35;
+  }
+  nav.toc a .n {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    flex: none;
+    padding-top: 1px;
+  }
+  nav.toc a:hover { background: var(--surface-2); color: var(--text); }
+  nav.toc a.active { background: var(--accent-soft); color: var(--accent-strong); font-weight: 600; }
+  nav.toc a.active .n { color: var(--accent); }
+
+  .meta-block {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    line-height: 1.9;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: auto;
+  }
+  .meta-block strong { color: var(--text-muted); font-weight: 600; }
+
+  main { padding: 56px 32px 120px; display: flex; justify-content: center; }
+  .reading-column { width: 100%; max-width: 720px; }
+
+  .doc-header { margin-bottom: 36px; padding-bottom: 26px; border-bottom: 1px solid var(--border); }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    margin: 0 0 10px;
+  }
+  .doc-header h1 { font-size: 36px; font-weight: 800; margin: 0 0 14px; line-height: 1.14; }
+  .doc-header p.lede { color: var(--text-muted); font-size: 16.5px; max-width: 60ch; margin: 0 0 16px; }
+  .doc-header .dates {
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px; color: var(--text-faint);
+  }
+  .doc-header .dates b { color: var(--text-muted); font-weight: 600; }
+
+  .summary-box {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-soft-border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 28px 0 44px;
+  }
+  .summary-box .label {
+    font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 13px;
+    color: var(--accent-strong); margin: 0 0 10px;
+  }
+  .summary-box ul { margin: 0; padding-left: 20px; font-size: 15px; color: var(--text); }
+  .summary-box li { margin-bottom: 6px; }
+  .summary-box li:last-child { margin-bottom: 0; }
+
+  .not-public {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin: 0 0 44px;
+    font-size: 14.5px;
+    color: var(--text-muted);
+  }
+  .not-public b { color: var(--text); }
+
+  section.clause { margin-bottom: 42px; scroll-margin-top: 24px; }
+  section.clause h2 {
+    display: flex; align-items: baseline; gap: 12px;
+    font-size: 20px; font-weight: 800; margin: 0 0 14px;
+  }
+  section.clause h2 .idx {
+    font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500;
+    color: var(--accent); flex: none;
+  }
+  section.clause h3 { font-size: 15.5px; font-weight: 700; margin: 22px 0 8px; color: var(--text); }
+  section.clause p { margin: 0 0 14px; color: var(--text); }
+  section.clause p.muted { color: var(--text-muted); font-size: 15px; }
+  section.clause ul, section.clause ol { margin: 0 0 14px; padding-left: 22px; }
+  section.clause li { margin-bottom: 8px; }
+  section.clause li::marker { color: var(--text-faint); }
+  section.clause strong { color: var(--text); }
+
+  .role-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+    margin: 8px 0 20px;
+  }
+  .role-chip {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .role-chip .r-name {
+    font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 13.5px;
+    color: var(--text); margin-bottom: 3px;
+  }
+  .role-chip .r-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+  .safeguard-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0 20px;
+  }
+  .safeguard {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .safeguard .s-title {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 14px;
+    color: var(--text); margin-bottom: 6px;
+  }
+  .safeguard .s-title .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
+  .safeguard p { font-size: 13.5px; color: var(--text-muted); margin: 0; line-height: 1.55; }
+
+  table.data-table {
+    width: 100%; border-collapse: collapse; margin: 8px 0 20px; font-size: 14.5px;
+  }
+  table.data-table th, table.data-table td {
+    text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top;
+  }
+  table.data-table th {
+    font-family: 'Lexend', sans-serif; font-size: 11.5px; font-weight: 700;
+    letter-spacing: .03em; text-transform: uppercase; color: var(--text-muted);
+  }
+
+  .contact-card {
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 22px 24px; margin-top: 8px;
+  }
+  .contact-card .row { display: flex; gap: 10px; font-size: 15px; padding: 6px 0; }
+  .contact-card .row .k {
+    font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-faint);
+    width: 90px; flex: none; padding-top: 3px; text-transform: uppercase; letter-spacing: .04em;
+  }
+
+  .footer-note {
+    margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-faint); line-height: 1.8;
+  }
+
+  @media (max-width: 880px) {
+    .shell { grid-template-columns: 1fr; align-content: start; }
+    .sidebar { position: static; height: auto; padding: 18px 20px; overflow: visible; }
+    .sidebar nav.toc, .sidebar .meta-block { display: none; }
+    .brand { border-bottom: none; padding-bottom: 0; }
+    main { padding: 32px 20px 100px; }
+    .doc-header h1 { font-size: 28px; }
+    .role-grid { grid-template-columns: 1fr 1fr; }
+    .safeguard-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    .sidebar { display: none; }
+    .shell { display: block; }
+    main { padding: 0; }
+    body { background: #fff; color: #000; font-size: 12pt; }
+    a { color: inherit; text-decoration: none; }
+    .summary-box, .not-public { border: 1px solid #ccc; background: #f6f6f6; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="MotaMate">
+      <span class="full-name">Garage Management Platform</span>
+    </div>
+
+    <nav class="toc">
+      <p class="toc-label">On this page</p>
+      <a href="#s-1"><span class="n">01</span><span>Introduction &amp; scope</span></a>
+      <a href="#s-2"><span class="n">02</span><span>Who uses MotaMate</span></a>
+      <a href="#s-3"><span class="n">03</span><span>Information we collect</span></a>
+      <a href="#s-4"><span class="n">04</span><span>Camera, location &amp; notifications</span></a>
+      <a href="#s-5"><span class="n">05</span><span>Payment information</span></a>
+      <a href="#s-6"><span class="n">06</span><span>How we use information</span></a>
+      <a href="#s-7"><span class="n">07</span><span>Data protection design</span></a>
+      <a href="#s-8"><span class="n">08</span><span>Sharing &amp; disclosure</span></a>
+      <a href="#s-9"><span class="n">09</span><span>Data retention</span></a>
+      <a href="#s-10"><span class="n">10</span><span>Your rights &amp; choices</span></a>
+      <a href="#s-11"><span class="n">11</span><span>Children's privacy</span></a>
+      <a href="#s-12"><span class="n">12</span><span>International transfers</span></a>
+      <a href="#s-13"><span class="n">13</span><span>Changes to this policy</span></a>
+      <a href="#s-14"><span class="n">14</span><span>Contact us</span></a>
+    </nav>
+
+    <div class="meta-block">
+      <div><strong>App</strong> — MotaMate</div>
+      <div><strong>Operator</strong> — VultureNest</div>
+      <div><strong>Jurisdiction</strong> — Harare, Zimbabwe</div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="reading-column">
+      <header class="doc-header">
+        <p class="kicker">Legal · Data Protection</p>
+        <h1>MotaMate Privacy Policy</h1>
+        <p class="lede">Covers the MotaMate garage management platform — the web dashboard, the staff app, and the customer app.</p>
+        <div class="dates">
+          <span><b>Effective</b> September 2, 2026</span>
+          <span><b>Last updated</b> September 2, 2026</span>
+        </div>
+      </header>
+
+      <div class="summary-box">
+        <p class="label">In short</p>
+        <ul>
+          <li>MotaMate is three connected apps: a web dashboard for garage staff, a staff app for the shop floor, and a customer app for car owners.</li>
+          <li>We collect what's needed to run a booking — your contact details, vehicle details, and job/quote history — plus checklist photos taken by the garage's staff.</li>
+          <li>Every garage only ever sees its own customers and jobs — never another garage's data.</li>
+          <li>We never sell your personal data, and we don't store your full card number.</li>
+        </ul>
+      </div>
+
+      <div class="not-public">
+        <span>🔧</span>
+        <div>
+          <b>Two kinds of accounts.</b> Garage staff accounts (Owner, Manager, Service Advisor, Foreman, Technician,
+          Cashier, Storekeeper) are created by a garage's Owner or Manager. Customer accounts are self-registered in
+          the customer app by the car owner. This Policy covers both.
+        </div>
+      </div>
+
+      <section class="clause" id="s-1">
+        <h2><span class="idx">01</span>Introduction &amp; scope</h2>
+        <p>
+          This Privacy Policy explains how VultureNest (<strong>"VultureNest," "MotaMate," "we," "us,"</strong> or
+          <strong>"our"</strong>), the developer and operator of the MotaMate platform — comprising a web dashboard,
+          a staff mobile app, and a customer mobile app (together, the <strong>"Service"</strong>) — collects, uses,
+          discloses, and protects information when the Service is used.
+        </p>
+        <p>
+          MotaMate is provided to independent garages as customers of VultureNest. Each garage is the operator of
+          its own customer and job data; VultureNest hosts and processes that data on the garage's behalf, as
+          described below.
+        </p>
+        <p>
+          By creating an account or otherwise using the Service, you agree to the collection and use of information
+          as described in this Policy.
+        </p>
+      </section>
+
+      <section class="clause" id="s-2">
+        <h2><span class="idx">02</span>Who uses MotaMate</h2>
+        <p>Garage staff are issued an account by their Owner or Manager, with one of the following roles:</p>
+        <div class="role-grid">
+          <div class="role-chip"><div class="r-name">Owner</div><div class="r-desc">Full access, including Settings, staff, and reports.</div></div>
+          <div class="role-chip"><div class="r-name">Manager</div><div class="r-desc">Day-to-day operations across most screens.</div></div>
+          <div class="role-chip"><div class="r-name">Service Advisor</div><div class="r-desc">Customers, vehicles, check-ins, checklists, quotes.</div></div>
+          <div class="role-chip"><div class="r-name">Foreman</div><div class="r-desc">Assigns work, moves jobs through stages.</div></div>
+          <div class="role-chip"><div class="r-name">Technician</div><div class="r-desc">Their assigned jobs and checklists, on the staff app.</div></div>
+          <div class="role-chip"><div class="r-name">Cashier</div><div class="r-desc">Till, invoices, and payments.</div></div>
+          <div class="role-chip"><div class="r-name">Storekeeper</div><div class="r-desc">Parts inventory and pricing.</div></div>
+        </div>
+        <p class="muted">
+          Customers use a separate customer app: they register themselves, add their vehicle, book a service, track
+          its progress, and approve quotes.
+        </p>
+      </section>
+
+      <section class="clause" id="s-3">
+        <h2><span class="idx">03</span>Information we collect</h2>
+        <h3>Customer account &amp; vehicle data</h3>
+        <ul>
+          <li>Full name, email address, phone number (optional), and password;</li>
+          <li>Vehicle details — number plate, make, model, year, and colour;</li>
+          <li>Booking details — branch, service type, requested time slot, and job status history.</li>
+        </ul>
+        <h3>Staff account data</h3>
+        <ul>
+          <li>Full name, work email (used as login), phone number, role, and branch assignment;</li>
+          <li>Actions taken in the Service, such as check-ins, checklist completions, and quotes created.</li>
+        </ul>
+        <h3>Job &amp; quote data</h3>
+        <ul>
+          <li>Job cards — concern, mileage, fuel level, and work carried out;</li>
+          <li>Pre-repair checklist results and photos taken by staff;</li>
+          <li>Quotations, line items, and quote PDFs, which include the garage's branding and your vehicle's number plate.</li>
+        </ul>
+      </section>
+
+      <section class="clause" id="s-4">
+        <h2><span class="idx">04</span>Camera, location &amp; notifications</h2>
+        <p>The MotaMate apps request a small number of device permissions. Each can be managed from your device settings.</p>
+        <table class="data-table">
+          <thead><tr><th>Permission</th><th>Why we ask</th></tr></thead>
+          <tbody>
+            <tr><td>Camera &amp; photo library</td><td>So a Service Advisor or Technician can attach photos to a pre-repair checklist as evidence of the vehicle's condition. Only accessed when a photo is added.</td></tr>
+            <tr><td>Location</td><td>To help a customer find and select the nearest garage branch when booking.</td></tr>
+            <tr><td>Push notifications</td><td>To send booking confirmations, quote-ready alerts, and job-status updates.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="clause" id="s-5">
+        <h2><span class="idx">05</span>Payment information</h2>
+        <p>
+          Payments are recorded by a garage's Cashier through the web dashboard, using channels such as cash, mobile
+          money (EcoCash, OneMoney, InnBucks), or Visa card, depending on what a garage accepts. Card payments are
+          processed by third-party payment providers — MotaMate does not store your full card number.
+        </p>
+      </section>
+
+      <section class="clause" id="s-6">
+        <h2><span class="idx">06</span>How we use information</h2>
+        <p>We use the information processed by the Service to:</p>
+        <ul>
+          <li>Create and manage staff and customer accounts;</li>
+          <li>Take bookings, create job cards, and move jobs through their stages;</li>
+          <li>Record pre-repair checklists and photos as a condition record for each job;</li>
+          <li>Create, send, and track quotations, and generate quote and invoice PDFs;</li>
+          <li>Send booking, quote, and status notifications;</li>
+          <li>Secure the platform and investigate suspected misuse.</li>
+        </ul>
+      </section>
+
+      <section class="clause" id="s-7">
+        <h2><span class="idx">07</span>Data protection design</h2>
+        <div class="safeguard-grid">
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>One garage, one dataset</div><p>Each garage only ever sees its own customers, vehicles, and jobs — never another garage's data.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Role-based access</div><p>Staff only see the screens their role needs — a Technician sees far less than an Owner.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Branch scoping</div><p>Where a staff account is limited to one branch, it cannot see other branches' bookings or jobs.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Job status trail</div><p>Every job's stage history (booked in, in progress, invoiced, paid) is recorded and visible to the customer.</p></div>
+        </div>
+      </section>
+
+      <section class="clause" id="s-8">
+        <h2><span class="idx">08</span>Sharing &amp; disclosure</h2>
+        <p>We do not sell personal data. Information is shared only:</p>
+        <ul>
+          <li><strong>With the garage you book with</strong> — your contact, vehicle, and booking details, so the garage can carry out and bill for the service;</li>
+          <li><strong>With payment providers</strong> — to process card payments where a garage accepts them;</li>
+          <li><strong>With service vendors</strong> — cloud hosting and support tools that process data on our behalf, under confidentiality obligations;</li>
+          <li><strong>Where legally required</strong> — to comply with a legal obligation, or protect the rights and safety of VultureNest, a garage, or their customers.</li>
+        </ul>
+      </section>
+
+      <section class="clause" id="s-9">
+        <h2><span class="idx">09</span>Data retention</h2>
+        <p>
+          We retain account, job, and quote data for as long as your account is active and as necessary to provide
+          the Service, resolve disputes, and meet the garage's accounting and legal obligations. When you delete
+          your customer account, we delete or anonymise your personal data within a reasonable period, except where
+          retention is required by law.
+        </p>
+      </section>
+
+      <section class="clause" id="s-10">
+        <h2><span class="idx">10</span>Your rights &amp; choices</h2>
+        <p>Subject to applicable law, including Zimbabwe's Cyber and Data Protection Act, you have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you;</li>
+          <li>Correct inaccurate or incomplete data;</li>
+          <li>Request deletion of your data, where it is not needed for an open job or legal obligation;</li>
+          <li>Withdraw consent for optional permissions, such as location or notifications, at any time.</li>
+        </ul>
+        <p class="muted">To exercise these rights, contact us using the details in Section 14, or your garage directly for job-specific records.</p>
+      </section>
+
+      <section class="clause" id="s-11">
+        <h2><span class="idx">11</span>Children's privacy</h2>
+        <p>
+          The Service is not directed to, and is not intended for use by, anyone under the age of 16. We do not
+          knowingly collect personal data from children through the Service.
+        </p>
+      </section>
+
+      <section class="clause" id="s-12">
+        <h2><span class="idx">12</span>International transfers</h2>
+        <p>
+          Some of our service providers, such as cloud hosting vendors, may process data outside Zimbabwe. Where
+          this occurs, we take reasonable steps to ensure your information receives an equivalent standard of
+          protection.
+        </p>
+      </section>
+
+      <section class="clause" id="s-13">
+        <h2><span class="idx">13</span>Changes to this policy</h2>
+        <p>
+          We may update this Policy from time to time. We will update the "Last updated" date above and, for
+          material changes, notify users through the Service or by email.
+        </p>
+      </section>
+
+      <section class="clause" id="s-14">
+        <h2><span class="idx">14</span>Contact us</h2>
+        <p>Questions about this Privacy Policy or a data request can be directed to:</p>
+        <div class="contact-card">
+          <div class="row"><span class="k mono">Operator</span><span>VultureNest</span></div>
+          <div class="row"><span class="k mono">Email</span><span><a href="mailto:info@vulturenest.org">info@vulturenest.org</a></span></div>
+          <div class="row"><span class="k mono">Phone</span><span><a href="tel:+263783347616">+263 78 334 7616</a></span></div>
+          <div class="row"><span class="k mono">Address</span><span>Harare, Zimbabwe</span></div>
+        </div>
+      </section>
+
+      <div class="footer-note">
+        MotaMate Privacy Policy — effective 2026-09-02 — provided for Google Play Store Console submission.
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+(function () {
+  var sections = document.querySelectorAll('section.clause');
+  var linkMap = {};
+  document.querySelectorAll('nav.toc a').forEach(function (a) {
+    linkMap[a.getAttribute('href').slice(1)] = a;
+  });
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var link = linkMap[entry.target.id];
+      if (!link) return;
+      if (entry.isIntersecting) {
+        document.querySelectorAll('nav.toc a.active').forEach(function (l) { l.classList.remove('active'); });
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230D0F53%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2254%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2262%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%220%22%3ES%3C%2Ftext%3E%3C%2Fsvg%3E">
+<title>Sparkle Legal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #F5F6FB;
+    --surface: #FFFFFF;
+    --surface-2: #EEF1F8;
+    --text: #12163A;
+    --text-muted: #5A6478;
+    --text-faint: #8891A8;
+    --border: #E1E4EE;
+    --accent: #1467AB;
+    --accent-strong: #0D0F53;
+    --accent-soft: #E8F0FA;
+    --accent-soft-border: #CFE0F5;
+    --danger: #B3421F;
+    --shadow: 0 1px 2px rgba(13,15,83,0.04), 0 8px 24px rgba(13,15,83,0.06);
+    --focus: #1467AB;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0A0C1F;
+      --surface: #12152E;
+      --surface-2: #171B3A;
+      --text: #E8EAF5;
+      --text-muted: #9AA3C0;
+      --text-faint: #6B7392;
+      --border: #262B4E;
+      --accent: #5B9FDB;
+      --accent-strong: #9AC2EE;
+      --accent-soft: #16203F;
+      --accent-soft-border: #26365E;
+      --danger: #E08B6C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.35);
+      --focus: #5B9FDB;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0A0C1F;
+    --surface: #12152E;
+    --surface-2: #171B3A;
+    --text: #E8EAF5;
+    --text-muted: #9AA3C0;
+    --text-faint: #6B7392;
+    --border: #262B4E;
+    --accent: #5B9FDB;
+    --accent-strong: #9AC2EE;
+    --accent-soft: #16203F;
+    --accent-soft-border: #26365E;
+    --danger: #E08B6C;
+    --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.35);
+    --focus: #5B9FDB;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Sora', system-ui, sans-serif;
+    color: var(--text);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .mono {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  /* ---------- Shell layout ---------- */
+
+  .shell {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    padding: 28px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand img {
+    height: 26px;
+    width: auto;
+    display: block;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .brand img { filter: brightness(0) invert(1); }
+  }
+  :root[data-theme="dark"] .brand img { filter: brightness(0) invert(1); }
+
+  .doc-switch {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 4px;
+    background: var(--surface-2);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .doc-switch button {
+    all: unset;
+    cursor: pointer;
+    font-family: 'Sora', system-ui, sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 10px 12px;
+    border-radius: 7px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .doc-switch button[aria-selected="true"] {
+    background: var(--surface);
+    color: var(--accent-strong);
+    box-shadow: var(--shadow);
+  }
+  .doc-switch button:hover:not([aria-selected="true"]) { color: var(--text); }
+
+  .meta-block {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+  .meta-block strong { color: var(--text-muted); font-weight: 600; }
+
+  nav.toc {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+  }
+  nav.toc .toc-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0 0 8px 10px;
+  }
+  nav.toc a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    padding: 7px 10px;
+    border-radius: 7px;
+    display: flex;
+    gap: 8px;
+    line-height: 1.35;
+  }
+  nav.toc a .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    flex: none;
+    padding-top: 1px;
+  }
+  nav.toc a:hover { background: var(--surface-2); color: var(--text); }
+  nav.toc a.active { background: var(--accent-soft); color: var(--accent-strong); font-weight: 600; }
+  nav.toc a.active .n { color: var(--accent); }
+
+  .doc-panel { display: none; }
+  .doc-panel.active { display: block; }
+
+  nav.toc.toc-inactive { display: none; }
+
+  main {
+    padding: 56px 32px 120px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .reading-column {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .doc-header {
+    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  .doc-header h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin: 0 0 14px;
+    line-height: 1.12;
+  }
+  .doc-header .dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+  .doc-header .dates b { color: var(--text-muted); font-weight: 600; }
+
+  .summary-box {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-soft-border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin: 28px 0 44px;
+  }
+  .summary-box .label {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--accent-strong);
+    margin: 0 0 10px;
+  }
+  .summary-box ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .summary-box li { margin-bottom: 6px; }
+  .summary-box li:last-child { margin-bottom: 0; }
+
+  section.clause {
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+  section.clause h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0 0 14px;
+  }
+  section.clause h2 .idx {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+    flex: none;
+  }
+  section.clause h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 22px 0 8px;
+    color: var(--text);
+  }
+  section.clause p { margin: 0 0 14px; color: var(--text); }
+  section.clause p.muted { color: var(--text-muted); font-size: 15.5px; }
+  section.clause ul, section.clause ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+  }
+  section.clause li { margin-bottom: 8px; }
+  section.clause li::marker { color: var(--text-faint); }
+
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 20px;
+    font-family: 'Source Serif 4', serif;
+    font-size: 15px;
+  }
+  table.data-table th, table.data-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.data-table th {
+    font-family: 'Sora', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .contact-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin-top: 8px;
+  }
+  .contact-card .row {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    padding: 6px 0;
+  }
+  .contact-card .row .k {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+    width: 90px;
+    flex: none;
+    padding-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .footer-note {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    line-height: 1.8;
+  }
+
+  .mobile-bar { display: none; }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 880px) {
+    .shell { grid-template-columns: 1fr; align-content: start; }
+    .sidebar {
+      position: static;
+      height: auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      overflow: visible;
+    }
+    .sidebar nav.toc, .sidebar .meta-block { display: none; }
+    .doc-switch { flex-direction: row; }
+    main { padding: 32px 20px 100px; }
+    .doc-header h1 { font-size: 30px; }
+  }
+
+  /* ---------- Print ---------- */
+
+  @media print {
+    .sidebar { display: none; }
+    .shell { display: block; }
+    main { padding: 0; }
+    body { background: #fff; color: #000; font-size: 12.5pt; }
+    .doc-panel { display: block !important; }
+    a { color: inherit; text-decoration: none; }
+    .summary-box { border: 1px solid #ccc; background: #f5f5f5; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="data:image/png;base64,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" alt="Sparkle">
+    </div>
+
+    <div class="doc-switch" role="tablist" aria-label="Legal document">
+      <button type="button" role="tab" aria-selected="true" data-doc="privacy" id="tab-privacy">Privacy Policy</button>
+      <button type="button" role="tab" aria-selected="false" data-doc="terms" id="tab-terms">Terms &amp; Conditions</button>
+    </div>
+
+    <nav class="toc" id="toc-privacy" data-for="privacy">
+      <p class="toc-label">On this page</p>
+      <a href="#p-1"><span class="n">01</span><span>Introduction</span></a>
+      <a href="#p-2"><span class="n">02</span><span>Information we collect</span></a>
+      <a href="#p-3"><span class="n">03</span><span>How we use information</span></a>
+      <a href="#p-4"><span class="n">04</span><span>Location, camera &amp; notifications</span></a>
+      <a href="#p-5"><span class="n">05</span><span>Payment information</span></a>
+      <a href="#p-6"><span class="n">06</span><span>Sharing &amp; disclosure</span></a>
+      <a href="#p-7"><span class="n">07</span><span>Data retention</span></a>
+      <a href="#p-8"><span class="n">08</span><span>Data security</span></a>
+      <a href="#p-9"><span class="n">09</span><span>Your rights &amp; choices</span></a>
+      <a href="#p-10"><span class="n">10</span><span>Children's privacy</span></a>
+      <a href="#p-11"><span class="n">11</span><span>International transfers</span></a>
+      <a href="#p-12"><span class="n">12</span><span>Changes to this policy</span></a>
+      <a href="#p-13"><span class="n">13</span><span>Contact us</span></a>
+    </nav>
+
+    <nav class="toc toc-inactive" id="toc-terms" data-for="terms">
+      <p class="toc-label">On this page</p>
+      <a href="#t-1"><span class="n">01</span><span>Acceptance of terms</span></a>
+      <a href="#t-2"><span class="n">02</span><span>The Sparkle service</span></a>
+      <a href="#t-3"><span class="n">03</span><span>Eligibility &amp; accounts</span></a>
+      <a href="#t-4"><span class="n">04</span><span>Bookings &amp; scheduling</span></a>
+      <a href="#t-5"><span class="n">05</span><span>Pricing &amp; payment</span></a>
+      <a href="#t-6"><span class="n">06</span><span>Cancellations &amp; refunds</span></a>
+      <a href="#t-7"><span class="n">07</span><span>Service providers</span></a>
+      <a href="#t-8"><span class="n">08</span><span>Vehicle condition &amp; liability</span></a>
+      <a href="#t-9"><span class="n">09</span><span>Acceptable use</span></a>
+      <a href="#t-10"><span class="n">10</span><span>Intellectual property</span></a>
+      <a href="#t-11"><span class="n">11</span><span>Termination</span></a>
+      <a href="#t-12"><span class="n">12</span><span>Disclaimers &amp; liability</span></a>
+      <a href="#t-13"><span class="n">13</span><span>Governing law &amp; disputes</span></a>
+      <a href="#t-14"><span class="n">14</span><span>Changes to these terms</span></a>
+      <a href="#t-15"><span class="n">15</span><span>Contact us</span></a>
+    </nav>
+
+    <div class="meta-block">
+      <div><strong>App</strong> — Sparkle Car Wash Booking</div>
+      <div><strong>Operator</strong> — VultureNest</div>
+      <div><strong>Jurisdiction</strong> — Harare, Zimbabwe</div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="reading-column">
+
+      <!-- ============ PRIVACY POLICY ============ -->
+      <div class="doc-panel active" id="doc-privacy">
+        <header class="doc-header">
+          <p class="kicker">Legal · Data Protection</p>
+          <h1>Sparkle Privacy Policy</h1>
+          <div class="dates">
+            <span><b>Effective</b> September 2, 2026</span>
+            <span><b>Last updated</b> September 2, 2026</span>
+          </div>
+        </header>
+
+        <div class="summary-box">
+          <p class="label">In short</p>
+          <ul>
+            <li>We collect what's needed to book and deliver a car wash: your contact details, vehicle details, service address, and payment method.</li>
+            <li>We only use location, camera, and push notifications for features you actively use — finding nearby washes, before/after photos, and booking updates.</li>
+            <li>We never sell your personal data, and we don't store your full card number.</li>
+            <li>You can request a copy or deletion of your data at any time by emailing us.</li>
+          </ul>
+        </div>
+
+        <section class="clause" id="p-1">
+          <h2><span class="idx">01</span>Introduction</h2>
+          <p>
+            This Privacy Policy explains how VultureNest (<strong>"VultureNest," "Sparkle," "we," "us,"</strong> or
+            <strong>"our"</strong>), the operator of the Sparkle car wash booking application (the <strong>"App"</strong>)
+            and any related website, collects, uses, discloses, and protects information when you use our services
+            (collectively, the <strong>"Service"</strong>).
+          </p>
+          <p>
+            By creating an account or otherwise using the Service, you agree to the collection and use of information
+            in accordance with this Privacy Policy. If you do not agree with this policy, please do not use the
+            Service.
+          </p>
+        </section>
+
+        <section class="clause" id="p-2">
+          <h2><span class="idx">02</span>Information we collect</h2>
+          <p>We collect information in three ways: what you give us directly, what we collect automatically, and what we receive from third parties.</p>
+
+          <h3>Information you provide</h3>
+          <ul>
+            <li><strong>Account details</strong> — full name, email address, phone number, and password.</li>
+            <li><strong>Vehicle details</strong> — make, model, colour, and registration/number plate.</li>
+            <li><strong>Booking details</strong> — service address, preferred date and time, and any special instructions.</li>
+            <li><strong>Payment details</strong> — billing information needed to process a transaction (see Section 5).</li>
+            <li><strong>Communications</strong> — messages you send to our support team, ratings, and reviews.</li>
+          </ul>
+
+          <h3>Information collected automatically</h3>
+          <ul>
+            <li><strong>Device information</strong> — device model, operating system, unique device identifiers, and mobile network information.</li>
+            <li><strong>Usage data</strong> — how you interact with the App, pages viewed, and features used, collected via app analytics and log files.</li>
+            <li><strong>Location data</strong> — with your permission (see Section 4).</li>
+          </ul>
+
+          <h3>Information from third parties</h3>
+          <p class="muted">
+            We may receive information from payment processors, mobile money providers, and, where you choose to sign
+            in with a third-party account, from that provider (such as your name and email address).
+          </p>
+        </section>
+
+        <section class="clause" id="p-3">
+          <h2><span class="idx">03</span>How we use information</h2>
+          <p>We use the information we collect to:</p>
+          <ul>
+            <li>Create and manage your Sparkle account;</li>
+            <li>Process, confirm, and fulfil car wash bookings, including matching you with a service provider;</li>
+            <li>Process payments and prevent fraudulent transactions;</li>
+            <li>Send booking confirmations, service updates, receipts, and respond to support requests;</li>
+            <li>Send promotional communications, where you have not opted out;</li>
+            <li>Improve, secure, and troubleshoot the Service, and understand how it is used; and</li>
+            <li>Comply with legal obligations and enforce our Terms &amp; Conditions.</li>
+          </ul>
+        </section>
+
+        <section class="clause" id="p-4">
+          <h2><span class="idx">04</span>Location, camera &amp; notifications</h2>
+          <p>
+            The App requests a small number of device permissions. Each is optional unless noted, and can be
+            managed at any time from your device settings.
+          </p>
+          <table class="data-table">
+            <thead>
+              <tr><th>Permission</th><th>Why we ask</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Precise location</td>
+                <td>To show nearby service availability, pre-fill your booking address, and help a service provider find you.</td>
+              </tr>
+              <tr>
+                <td>Camera &amp; photo library</td>
+                <td>To let you attach before/after photos of your vehicle to a booking, or upload a profile photo. Photos are only accessed when you choose to add one.</td>
+              </tr>
+              <tr>
+                <td>Push notifications</td>
+                <td>To send booking confirmations, provider-arrival alerts, and status updates. Promotional notifications can be turned off separately in the App.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="clause" id="p-5">
+          <h2><span class="idx">05</span>Payment information</h2>
+          <p>
+            Payments made through the App are processed by third-party, PCI-DSS-compliant payment processors and
+            mobile money providers. Sparkle does not store your full card number, card verification code, or mobile
+            money PIN — these are handled directly by our payment partners. We retain only a record of the
+            transaction (such as amount, date, and a masked payment reference) needed for receipts, refunds, and
+            accounting.
+          </p>
+        </section>
+
+        <section class="clause" id="p-6">
+          <h2><span class="idx">06</span>Sharing &amp; disclosure</h2>
+          <p>We do not sell your personal information. We share information only in the following circumstances:</p>
+          <ul>
+            <li><strong>With service providers</strong> — the name, vehicle details, and location needed for a wash technician or partner to fulfil your booking.</li>
+            <li><strong>With payment and mobile money partners</strong> — to process transactions.</li>
+            <li><strong>With service vendors</strong> — cloud hosting, analytics, and customer support tools that process data on our behalf, under contractual confidentiality obligations.</li>
+            <li><strong>For legal reasons</strong> — where required to comply with a legal obligation, protect the rights and safety of Sparkle, our users, or the public, or in connection with a merger, acquisition, or sale of assets.</li>
+          </ul>
+        </section>
+
+        <section class="clause" id="p-7">
+          <h2><span class="idx">07</span>Data retention</h2>
+          <p>
+            We retain personal data for as long as your account is active and as necessary to provide the Service,
+            resolve disputes, enforce our agreements, and comply with legal, tax, and accounting obligations. When
+            you delete your account, we delete or anonymise your personal data within a reasonable period, except
+            where retention is required by law.
+          </p>
+        </section>
+
+        <section class="clause" id="p-8">
+          <h2><span class="idx">08</span>Data security</h2>
+          <p>
+            We use administrative, technical, and physical safeguards — including encryption in transit, access
+            controls, and regular review of our practices — designed to protect your information. No method of
+            transmission or storage is completely secure, and we cannot guarantee absolute security.
+          </p>
+        </section>
+
+        <section class="clause" id="p-9">
+          <h2><span class="idx">09</span>Your rights &amp; choices</h2>
+          <p>
+            Subject to applicable law, including Zimbabwe's Cyber and Data Protection Act, you have the right to:
+          </p>
+          <ul>
+            <li>Access the personal data we hold about you;</li>
+            <li>Correct inaccurate or incomplete data;</li>
+            <li>Request deletion of your data;</li>
+            <li>Object to, or request that we restrict, certain processing;</li>
+            <li>Withdraw consent for optional features (such as location or notifications) at any time; and</li>
+            <li>Request a copy of your data in a portable format.</li>
+          </ul>
+          <p class="muted">To exercise any of these rights, contact us using the details in Section 13. We may need to verify your identity before actioning a request.</p>
+        </section>
+
+        <section class="clause" id="p-10">
+          <h2><span class="idx">10</span>Children's privacy</h2>
+          <p>
+            The Service is not directed to, and is not intended for use by, anyone under the age of 16. We do not
+            knowingly collect personal information from children. If you believe a child has provided us with
+            personal data, please contact us and we will take steps to delete it.
+          </p>
+        </section>
+
+        <section class="clause" id="p-11">
+          <h2><span class="idx">11</span>International transfers</h2>
+          <p>
+            Some of our service providers (such as cloud hosting or analytics vendors) may process data outside
+            Zimbabwe. Where this occurs, we take reasonable steps to ensure your information receives an equivalent
+            standard of protection.
+          </p>
+        </section>
+
+        <section class="clause" id="p-12">
+          <h2><span class="idx">12</span>Changes to this policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. We will update the "Last updated" date above and,
+            for material changes, provide notice through the App or by email. Continued use of the Service after a
+            change takes effect constitutes acceptance of the revised policy.
+          </p>
+        </section>
+
+        <section class="clause" id="p-13">
+          <h2><span class="idx">13</span>Contact us</h2>
+          <p>Questions about this Privacy Policy or your data can be directed to:</p>
+          <div class="contact-card">
+            <div class="row"><span class="k mono">Operator</span><span>VultureNest</span></div>
+            <div class="row"><span class="k mono">Email</span><span><a href="mailto:info@vulturenest.org">info@vulturenest.org</a></span></div>
+            <div class="row"><span class="k mono">Phone</span><span><a href="tel:+263783347616">+263 78 334 7616</a></span></div>
+            <div class="row"><span class="k mono">Address</span><span>Harare, Zimbabwe</span></div>
+          </div>
+        </section>
+
+        <div class="footer-note">
+          Sparkle Privacy Policy — effective 2026-09-02 — provided for Google Play Store Console submission.
+        </div>
+      </div>
+
+      <!-- ============ TERMS & CONDITIONS ============ -->
+      <div class="doc-panel" id="doc-terms">
+        <header class="doc-header">
+          <p class="kicker">Legal · Terms of Service</p>
+          <h1>Sparkle Terms &amp; Conditions</h1>
+          <div class="dates">
+            <span><b>Effective</b> September 2, 2026</span>
+            <span><b>Last updated</b> September 2, 2026</span>
+          </div>
+        </header>
+
+        <div class="summary-box">
+          <p class="label">In short</p>
+          <ul>
+            <li>Sparkle connects you with independent car wash service providers — we facilitate the booking, providers deliver the wash.</li>
+            <li>Prices are shown in the App before you confirm a booking.</li>
+            <li>Cancel with enough notice for a full refund; late cancellations may incur a fee.</li>
+            <li>Note your vehicle's condition before a wash begins, and report any issue within 24 hours.</li>
+          </ul>
+        </div>
+
+        <section class="clause" id="t-1">
+          <h2><span class="idx">01</span>Acceptance of terms</h2>
+          <p>
+            These Terms &amp; Conditions (<strong>"Terms"</strong>) govern your access to and use of the Sparkle
+            application and related services (the <strong>"Service"</strong>), operated by VultureNest
+            (<strong>"Sparkle," "we," "us,"</strong> or <strong>"our"</strong>). By creating an account, making a
+            booking, or otherwise using the Service, you agree to be bound by these Terms and by our Privacy Policy.
+            If you do not agree, do not use the Service.
+          </p>
+        </section>
+
+        <section class="clause" id="t-2">
+          <h2><span class="idx">02</span>The Sparkle service</h2>
+          <p>
+            Sparkle is an online booking platform that allows users to schedule car wash and vehicle detailing
+            services at a location of their choosing, or at a partner facility, and to pay for those services
+            through the App. Sparkle is a technology platform: it facilitates the connection between users and
+            independent car wash service providers but does not itself perform car wash services.
+          </p>
+        </section>
+
+        <section class="clause" id="t-3">
+          <h2><span class="idx">03</span>Eligibility &amp; accounts</h2>
+          <ul>
+            <li>You must be at least 18 years old, or the age of legal majority in your jurisdiction, to create an account and book a service.</li>
+            <li>You must provide accurate, current, and complete information when registering, and keep it up to date.</li>
+            <li>You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account.</li>
+            <li>Notify us immediately at <a href="mailto:info@vulturenest.org">info@vulturenest.org</a> if you suspect unauthorised use of your account.</li>
+          </ul>
+        </section>
+
+        <section class="clause" id="t-4">
+          <h2><span class="idx">04</span>Bookings &amp; scheduling</h2>
+          <p>
+            When you submit a booking through the App, you are making an offer to purchase the selected service at
+            the price shown. A booking is confirmed once you receive confirmation within the App. We will make
+            reasonable efforts to fulfil confirmed bookings at the scheduled time, but availability of service
+            providers may occasionally require us to propose an alternative time or location.
+          </p>
+        </section>
+
+        <section class="clause" id="t-5">
+          <h2><span class="idx">05</span>Pricing &amp; payment</h2>
+          <p>
+            Prices for available services are displayed in the App prior to confirming a booking. Prices may vary by
+            service type, vehicle size, and location, and may change from time to time. Payment is processed through
+            the payment method you select at checkout, including supported mobile money services and cards. All
+            fees are inclusive of any taxes required to be disclosed at the point of sale, unless stated otherwise.
+          </p>
+        </section>
+
+        <section class="clause" id="t-6">
+          <h2><span class="idx">06</span>Cancellations &amp; refunds</h2>
+          <ul>
+            <li>You may cancel a booking free of charge up to 2 hours before the scheduled service time.</li>
+            <li>Cancellations made after this window, or after a service provider has been dispatched, may incur a cancellation fee of up to the full service price, to cover the provider's time.</li>
+            <li>If a service provider fails to arrive or a booking cannot be fulfilled due to Sparkle's or the provider's fault, you are entitled to a full refund.</li>
+            <li>Refunds are issued to the original payment method and may take a number of business days to reflect, depending on your payment provider.</li>
+          </ul>
+        </section>
+
+        <section class="clause" id="t-7">
+          <h2><span class="idx">07</span>Service providers</h2>
+          <p>
+            Car wash services booked through Sparkle are performed by independent third-party service providers or
+            partner facilities, not by VultureNest employees. While we take reasonable steps to vet providers on
+            our platform, providers are solely responsible for the manner in which they perform the service. Sparkle
+            is not a party to, and assumes no liability for, the contract for services formed between you and the
+            provider, beyond facilitating the booking and payment.
+          </p>
+        </section>
+
+        <section class="clause" id="t-8">
+          <h2><span class="idx">08</span>Vehicle condition &amp; liability</h2>
+          <p>
+            You are responsible for accurately describing your vehicle and noting any pre-existing damage,
+            valuables, or fragile fittings before a service begins. We recommend taking photos of your vehicle
+            before the service starts. Any claim relating to loss of or damage to your vehicle during a service must
+            be reported to us at <a href="mailto:info@vulturenest.org">info@vulturenest.org</a> within 24 hours of
+            the service, with supporting photos where possible, so that we can investigate with the service provider.
+          </p>
+        </section>
+
+        <section class="clause" id="t-9">
+          <h2><span class="idx">09</span>Acceptable use</h2>
+          <p>When using the Service, you agree not to:</p>
+          <ul>
+            <li>Provide false information or impersonate another person;</li>
+            <li>Use the Service for any unlawful purpose, or in a way that infringes the rights of others;</li>
+            <li>Interfere with, disrupt, or attempt to gain unauthorised access to the Service or its systems;</li>
+            <li>Harass, abuse, or threaten any service provider or Sparkle staff; or</li>
+            <li>Reverse-engineer, scrape, or resell access to the Service without our written consent.</li>
+          </ul>
+          <p class="muted">We may suspend or terminate accounts that violate this section.</p>
+        </section>
+
+        <section class="clause" id="t-10">
+          <h2><span class="idx">10</span>Intellectual property</h2>
+          <p>
+            The Sparkle name, logo, App, and all associated content, features, and functionality are owned by
+            VultureNest and are protected by copyright, trademark, and other intellectual property laws. You are
+            granted a limited, non-exclusive, non-transferable licence to use the App for its intended purpose. You
+            may not copy, modify, distribute, or create derivative works from the Service without our prior written
+            consent.
+          </p>
+        </section>
+
+        <section class="clause" id="t-11">
+          <h2><span class="idx">11</span>Termination</h2>
+          <p>
+            You may stop using the Service and delete your account at any time by contacting us. We may suspend or
+            terminate your access to the Service, with or without notice, if we reasonably believe you have violated
+            these Terms, engaged in fraudulent activity, or posed a risk to Sparkle, our providers, or other users.
+          </p>
+        </section>
+
+        <section class="clause" id="t-12">
+          <h2><span class="idx">12</span>Disclaimers &amp; liability</h2>
+          <p>
+            The Service is provided on an "as is" and "as available" basis. To the fullest extent permitted by
+            applicable law, VultureNest disclaims all warranties, express or implied, regarding the Service and the
+            quality of services performed by third-party providers. To the fullest extent permitted by law, Vulture
+            Nest's total liability arising from your use of the Service shall not exceed the amount you paid for the
+            booking giving rise to the claim. Nothing in these Terms limits liability that cannot be excluded under
+            applicable law.
+          </p>
+        </section>
+
+        <section class="clause" id="t-13">
+          <h2><span class="idx">13</span>Governing law &amp; disputes</h2>
+          <p>
+            These Terms are governed by the laws of Zimbabwe, without regard to conflict-of-law principles. Any
+            dispute arising from these Terms or your use of the Service shall first be addressed by contacting
+            Sparkle support in good faith, and if unresolved, shall be subject to the exclusive jurisdiction of the
+            courts of Zimbabwe.
+          </p>
+        </section>
+
+        <section class="clause" id="t-14">
+          <h2><span class="idx">14</span>Changes to these terms</h2>
+          <p>
+            We may revise these Terms from time to time. We will update the "Last updated" date above and, for
+            material changes, notify you through the App or by email. Continuing to use the Service after changes
+            take effect constitutes acceptance of the revised Terms.
+          </p>
+        </section>
+
+        <section class="clause" id="t-15">
+          <h2><span class="idx">15</span>Contact us</h2>
+          <p>Questions about these Terms can be directed to:</p>
+          <div class="contact-card">
+            <div class="row"><span class="k mono">Operator</span><span>VultureNest</span></div>
+            <div class="row"><span class="k mono">Email</span><span><a href="mailto:info@vulturenest.org">info@vulturenest.org</a></span></div>
+            <div class="row"><span class="k mono">Phone</span><span><a href="tel:+263783347616">+263 78 334 7616</a></span></div>
+            <div class="row"><span class="k mono">Address</span><span>Harare, Zimbabwe</span></div>
+          </div>
+        </section>
+
+        <div class="footer-note">
+          Sparkle Terms &amp; Conditions — effective 2026-09-02 — provided for Google Play Store Console submission.
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.doc-switch button');
+  var panels = { privacy: document.getElementById('doc-privacy'), terms: document.getElementById('doc-terms') };
+  var tocs = { privacy: document.getElementById('toc-privacy'), terms: document.getElementById('toc-terms') };
+
+  function activate(doc) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute('data-doc') === doc;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    Object.keys(panels).forEach(function (k) {
+      panels[k].classList.toggle('active', k === doc);
+      tocs[k].classList.toggle('toc-inactive', k !== doc);
+    });
+    try { localStorage.setItem('sparkle-legal-doc', doc); } catch (e) {}
+    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { activate(t.getAttribute('data-doc')); });
+  });
+
+  var initial = 'privacy';
+  try {
+    var hash = window.location.hash.replace('#', '');
+    if (hash.indexOf('t-') === 0) initial = 'terms';
+    var stored = localStorage.getItem('sparkle-legal-doc');
+    if (stored && hash === '') initial = stored;
+  } catch (e) {}
+  activate(initial);
+
+  // Scrollspy for active TOC link
+  var sections = document.querySelectorAll('section.clause');
+  var linkMap = {};
+  document.querySelectorAll('nav.toc a').forEach(function (a) {
+    linkMap[a.getAttribute('href').slice(1)] = a;
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var link = linkMap[entry.target.id];
+      if (!link) return;
+      if (entry.isIntersecting) {
+        document.querySelectorAll('nav.toc a.active').forEach(function (l) { l.classList.remove('active'); });
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230A6B48%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%2254%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2226%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221%22%3EAES%3C%2Ftext%3E%3C%2Fsvg%3E">
+<title>AES Privacy Policy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #F3F6F4;
+    --surface: #FFFFFF;
+    --surface-2: #EAF0EC;
+    --text: #1D2B36;
+    --text-muted: #57666D;
+    --text-faint: #8B98A0;
+    --border: #D8E2DC;
+    --accent: #0A8F5B;
+    --accent-strong: #0A6B48;
+    --accent-soft: #E3F2EA;
+    --accent-soft-border: #C3E0D0;
+    --danger: #B3261E;
+    --shadow: 0 1px 2px rgba(10,25,20,0.05), 0 8px 24px rgba(10,25,20,0.07);
+    --focus: #0A8F5B;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1210;
+      --surface: #121B18;
+      --surface-2: #17211D;
+      --text: #E7EEEA;
+      --text-muted: #9FB0A8;
+      --text-faint: #6E8079;
+      --border: #24322C;
+      --accent: #2FCB8E;
+      --accent-strong: #7FE3B7;
+      --accent-soft: #12261C;
+      --accent-soft-border: #1E3A2C;
+      --danger: #E2685D;
+      --shadow: 0 1px 2px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.4);
+      --focus: #2FCB8E;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0B1210;
+    --surface: #121B18;
+    --surface-2: #17211D;
+    --text: #E7EEEA;
+    --text-muted: #9FB0A8;
+    --text-faint: #6E8079;
+    --border: #24322C;
+    --accent: #2FCB8E;
+    --accent-strong: #7FE3B7;
+    --accent-soft: #12261C;
+    --accent-soft-border: #1E3A2C;
+    --danger: #E2685D;
+    --shadow: 0 1px 2px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.4);
+    --focus: #2FCB8E;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent-strong); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: var(--text);
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+
+  .mono { font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 268px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    background: var(--surface);
+    padding: 30px 22px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand .mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .brand .mark .glyph {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, var(--accent) 0%, var(--accent-strong) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    flex: none;
+  }
+  .brand .mark .word {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+  .brand .full-name {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    padding-left: 39px;
+  }
+
+  nav.toc {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow-y: auto;
+  }
+  nav.toc .toc-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0 0 8px 10px;
+  }
+  nav.toc a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13.5px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    display: flex;
+    gap: 8px;
+    line-height: 1.35;
+  }
+  nav.toc a .n {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    flex: none;
+    padding-top: 1px;
+  }
+  nav.toc a:hover { background: var(--surface-2); color: var(--text); }
+  nav.toc a.active { background: var(--accent-soft); color: var(--accent-strong); font-weight: 600; }
+  nav.toc a.active .n { color: var(--accent); }
+
+  .meta-block {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    line-height: 1.9;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    margin-top: auto;
+  }
+  .meta-block strong { color: var(--text-muted); font-weight: 600; }
+
+  main {
+    padding: 56px 32px 120px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .reading-column { width: 100%; max-width: 720px; }
+
+  .doc-header {
+    margin-bottom: 36px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--border);
+  }
+  .kicker {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    margin: 0 0 10px;
+  }
+  .doc-header h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 0 14px;
+    line-height: 1.14;
+  }
+  .doc-header p.lede {
+    color: var(--text-muted);
+    font-size: 16.5px;
+    max-width: 60ch;
+    margin: 0 0 16px;
+  }
+  .doc-header .dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+  .doc-header .dates b { color: var(--text-muted); font-weight: 600; }
+
+  .summary-box {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-soft-border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin: 28px 0 44px;
+  }
+  .summary-box .label {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--accent-strong);
+    margin: 0 0 10px;
+  }
+  .summary-box ul { margin: 0; padding-left: 20px; font-size: 15px; color: var(--text); }
+  .summary-box li { margin-bottom: 6px; }
+  .summary-box li:last-child { margin-bottom: 0; }
+
+  .not-public {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin: 0 0 44px;
+    font-size: 14.5px;
+    color: var(--text-muted);
+  }
+  .not-public b { color: var(--text); }
+
+  section.clause { margin-bottom: 42px; scroll-margin-top: 24px; }
+  section.clause h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 14px;
+  }
+  section.clause h2 .idx {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    flex: none;
+  }
+  section.clause h3 { font-size: 15.5px; font-weight: 700; margin: 22px 0 8px; color: var(--text); }
+  section.clause p { margin: 0 0 14px; color: var(--text); }
+  section.clause p.muted { color: var(--text-muted); font-size: 15px; }
+  section.clause ul, section.clause ol { margin: 0 0 14px; padding-left: 22px; }
+  section.clause li { margin-bottom: 8px; }
+  section.clause li::marker { color: var(--text-faint); }
+  section.clause strong { color: var(--text); }
+
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 8px 0 20px;
+  }
+  .role-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .role-chip .r-name {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .role-chip .r-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+  .safeguard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 8px 0 20px;
+  }
+  .safeguard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .safeguard .s-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .safeguard .s-title .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--accent); flex: none;
+  }
+  .safeguard p { font-size: 13.5px; color: var(--text-muted); margin: 0; line-height: 1.55; }
+
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 20px;
+    font-size: 14.5px;
+  }
+  table.data-table th, table.data-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  table.data-table th {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .contact-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-top: 8px;
+  }
+  .contact-card .row { display: flex; gap: 10px; font-size: 15px; padding: 6px 0; }
+  .contact-card .row .k {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11.5px;
+    color: var(--text-faint);
+    width: 90px;
+    flex: none;
+    padding-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+
+  .footer-note {
+    margin-top: 56px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    line-height: 1.8;
+  }
+
+  @media (max-width: 880px) {
+    .shell { grid-template-columns: 1fr; align-content: start; }
+    .sidebar {
+      position: static;
+      height: auto;
+      padding: 18px 20px;
+      overflow: visible;
+    }
+    .sidebar nav.toc, .sidebar .meta-block { display: none; }
+    .brand { border-bottom: none; padding-bottom: 0; }
+    main { padding: 32px 20px 100px; }
+    .doc-header h1 { font-size: 28px; }
+    .role-grid { grid-template-columns: 1fr 1fr; }
+    .safeguard-grid { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    .sidebar { display: none; }
+    .shell { display: block; }
+    main { padding: 0; }
+    body { background: #fff; color: #000; font-size: 12pt; }
+    a { color: inherit; text-decoration: none; }
+    .summary-box, .not-public { border: 1px solid #ccc; background: #f6f6f6; }
+  }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="mark">
+        <span class="glyph">AES</span>
+        <span class="word">AES Platform</span>
+      </div>
+      <span class="full-name">Airflow Environmental Solutions</span>
+    </div>
+
+    <nav class="toc">
+      <p class="toc-label">On this page</p>
+      <a href="#s-1"><span class="n">01</span><span>Introduction &amp; scope</span></a>
+      <a href="#s-2"><span class="n">02</span><span>Who uses this system</span></a>
+      <a href="#s-3"><span class="n">03</span><span>Information we process</span></a>
+      <a href="#s-4"><span class="n">04</span><span>Payroll &amp; statutory data</span></a>
+      <a href="#s-5"><span class="n">05</span><span>Mobile app permissions</span></a>
+      <a href="#s-6"><span class="n">06</span><span>How data is used</span></a>
+      <a href="#s-7"><span class="n">07</span><span>Access control &amp; safeguards</span></a>
+      <a href="#s-8"><span class="n">08</span><span>Sharing &amp; disclosure</span></a>
+      <a href="#s-9"><span class="n">09</span><span>Data retention</span></a>
+      <a href="#s-10"><span class="n">10</span><span>Your rights &amp; choices</span></a>
+      <a href="#s-11"><span class="n">11</span><span>Children's privacy</span></a>
+      <a href="#s-12"><span class="n">12</span><span>International transfers</span></a>
+      <a href="#s-13"><span class="n">13</span><span>Changes to this policy</span></a>
+      <a href="#s-14"><span class="n">14</span><span>Contact us</span></a>
+    </nav>
+
+    <div class="meta-block">
+      <div><strong>System</strong> — AES Operations &amp; Finance</div>
+      <div><strong>Operator</strong> — Airflow Environmental Solutions</div>
+      <div><strong>Built by</strong> — VultureNest</div>
+      <div><strong>Jurisdiction</strong> — Zimbabwe</div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="reading-column">
+      <header class="doc-header">
+        <p class="kicker">Legal · Data Protection</p>
+        <h1>AES Privacy Policy</h1>
+        <p class="lede">Covers the AES Operations &amp; Finance Management System — admin console, web app, and mobile app.</p>
+        <div class="dates">
+          <span><b>Effective</b> September 2, 2026</span>
+          <span><b>Last updated</b> September 2, 2026</span>
+        </div>
+      </header>
+
+      <div class="summary-box">
+        <p class="label">In short</p>
+        <ul>
+          <li>This system is for authorised staff of Airflow Environmental Solutions and its client sites only — there is no public sign-up.</li>
+          <li>Every account has one role, and that role decides exactly what data it can see — including which mine site's data.</li>
+          <li>Financial approvals, payroll runs, and record changes are logged in an append-only audit trail that nobody can edit or delete.</li>
+          <li>Payroll and financial records are kept only as long as the law and our contracts with Airflow Environmental Solutions require.</li>
+        </ul>
+      </div>
+
+      <div class="not-public">
+        <span>🔒</span>
+        <div>
+          <b>Not a public app.</b> Accounts on the AES platform are created by a System Administrator for authorised
+          personnel of Airflow Environmental Solutions and the client sites it operates (such as Mimosa, Unki, and
+          Zimplats). You cannot register yourself — if you are looking for your login, contact your site's System
+          Administrator, not VultureNest.
+        </div>
+      </div>
+
+      <section class="clause" id="s-1">
+        <h2><span class="idx">01</span>Introduction &amp; scope</h2>
+        <p>
+          This Privacy Policy explains how Airflow Environmental Solutions (<strong>"AES," "we," "us,"</strong> or
+          <strong>"our"</strong>) collects, uses, discloses, and protects information through the AES Operations
+          &amp; Finance Management System — comprising an admin console, a web application, and a mobile application
+          (together, the <strong>"System"</strong>). The System was designed and built for AES by VultureNest, which
+          continues to host, maintain, and support it on AES's behalf.
+        </p>
+        <p>
+          By logging into or otherwise using the System, you agree to the collection and use of information as
+          described in this Policy.
+        </p>
+      </section>
+
+      <section class="clause" id="s-2">
+        <h2><span class="idx">02</span>Who uses this system</h2>
+        <p>
+          The System is an internal operations and finance platform. Every user is issued an account by a System
+          Administrator and assigned exactly one role, which determines what they can see and do:
+        </p>
+        <div class="role-grid">
+          <div class="role-chip"><div class="r-name">System Administrator</div><div class="r-desc">Configures the platform; no approval or finance authority.</div></div>
+          <div class="role-chip"><div class="r-name">Finance Director</div><div class="r-desc">Approves finance items, payroll, and spend above threshold.</div></div>
+          <div class="role-chip"><div class="r-name">Finance Officer</div><div class="r-desc">Transaction entry, receipts, payroll drafts, reporting.</div></div>
+          <div class="role-chip"><div class="r-name">Operations Director</div><div class="r-desc">Co-authorises budgets and operational requisitions.</div></div>
+          <div class="role-chip"><div class="r-name">Director</div><div class="r-desc">Director withdrawals; director-confidential boards.</div></div>
+          <div class="role-chip"><div class="r-name">Site Manager</div><div class="r-desc">First-line approver for their site's timesheets and requests.</div></div>
+          <div class="role-chip"><div class="r-name">Site Clerk / Timekeeper</div><div class="r-desc">Captures timesheets and petty-cash vouchers for their site.</div></div>
+          <div class="role-chip"><div class="r-name">Operations Staff</div><div class="r-desc">Raises orders, expenses, and requisitions.</div></div>
+          <div class="role-chip"><div class="r-name">Auditor</div><div class="r-desc">Read-only access for external accounting review.</div></div>
+        </div>
+        <p class="muted">Site Manager and Site Clerk accounts are additionally scoped to a single site — for example, a Mimosa-scoped account never sees Unki or Zimplats data.</p>
+      </section>
+
+      <section class="clause" id="s-3">
+        <h2><span class="idx">03</span>Information we process</h2>
+        <h3>Account &amp; identity data</h3>
+        <ul>
+          <li>Full name, work email address, and password;</li>
+          <li>Assigned role and, where applicable, site scope;</li>
+          <li>Login activity, session data, and audit-log entries recording who did what and when.</li>
+        </ul>
+        <h3>Operational &amp; financial data</h3>
+        <ul>
+          <li>Timesheets, requisitions, travel claims, and petty-cash vouchers you or your site raise;</li>
+          <li>Clients, contracts, orders, expenses, budgets, and loans entered into the System;</li>
+          <li>Comments, board cards, project updates, and site (SHE) reports.</li>
+        </ul>
+        <p class="muted">Much of this is business data belonging to Airflow Environmental Solutions rather than personal data about you — but where it identifies you (e.g. "raised by," "approved by"), it is treated as personal data under this Policy.</p>
+      </section>
+
+      <section class="clause" id="s-4">
+        <h2><span class="idx">04</span>Payroll &amp; statutory data</h2>
+        <p>
+          For users processed through payroll, the System additionally holds employment and payroll information
+          needed to run payroll and meet statutory obligations, including:
+        </p>
+        <ul>
+          <li>Pay rate, hours worked, overtime, and acting/back-pay adjustments;</li>
+          <li>Statutory deduction and contribution records — PAYE, NSSA, ZIMDEF, NEC, AIDS levy, and similar
+            Zimbabwean statutory items — and the returns filed from them;</li>
+          <li>Bank or mobile money details used to pay salaries and disburse advances;</li>
+          <li>Generated payslips and payroll bank schedules.</li>
+        </ul>
+        <p>
+          This data is entered by Finance Officers, approved by a Finance Director, and — once a payroll run is
+          approved — <strong>the run locks and can no longer be edited</strong>, preserving an accurate historical
+          record for statutory reporting.
+        </p>
+      </section>
+
+      <section class="clause" id="s-5">
+        <h2><span class="idx">05</span>Mobile app permissions</h2>
+        <p>
+          The AES mobile app is used mainly by Site Managers, Site Clerks, and Operations Staff for field capture —
+          timesheets, requisitions, and project updates — including offline, with data syncing once back online. The
+          app may request:
+        </p>
+        <table class="data-table">
+          <thead><tr><th>Permission</th><th>Why we ask</th></tr></thead>
+          <tbody>
+            <tr><td>Network access</td><td>To sync timesheets, requests, and approvals with the System when connectivity is available.</td></tr>
+            <tr><td>Local storage</td><td>To keep your work available while offline at a site, so nothing is lost before it can sync.</td></tr>
+            <tr><td>Notifications</td><td>To alert you to approvals, requests, and danger alerts assigned to your role.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="clause" id="s-6">
+        <h2><span class="idx">06</span>How data is used</h2>
+        <p>We use the information processed by the System to:</p>
+        <ul>
+          <li>Operate approvals, requisitions, budgets, timesheets, payroll, and financial reporting;</li>
+          <li>Enforce segregation of duties, so nobody can approve or settle their own request;</li>
+          <li>Compute and file statutory payroll obligations and VAT/tax positions;</li>
+          <li>Maintain an audit trail of who created, changed, or approved each record;</li>
+          <li>Provide role- and site-specific dashboards, including the Command Centre and danger alerts;</li>
+          <li>Secure the platform and investigate suspected misuse.</li>
+        </ul>
+      </section>
+
+      <section class="clause" id="s-7">
+        <h2><span class="idx">07</span>Access control &amp; safeguards</h2>
+        <p>The System's data-protection design is built around a small number of hard rules, enforced by the platform itself — not just policy:</p>
+        <div class="safeguard-grid">
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>No self-approval</div><p>Whoever raises a requisition, claim, or withdrawal can never be the one who approves or settles it.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Site scoping</div><p>Site-level accounts only ever see their own site's data — enforced server-side, not just hidden in the interface.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Append-only audit log</div><p>Every change is logged with actor and timestamp; entries cannot be edited or deleted, by anyone.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Locked payroll &amp; timesheets</div><p>Approved payroll runs and locked timesheet periods cannot be silently edited — reopening requires an explicit, audited unlock.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Read-only auditor access</div><p>The Auditor role can view records across the business but cannot create, edit, or approve anything.</p></div>
+          <div class="safeguard"><div class="s-title"><span class="dot"></span>Confidential boards</div><p>Director-confidential boards are filtered out server-side for every non-director role, not merely hidden on screen.</p></div>
+        </div>
+      </section>
+
+      <section class="clause" id="s-8">
+        <h2><span class="idx">08</span>Sharing &amp; disclosure</h2>
+        <p>We do not sell personal or financial data. Information in the System is shared only:</p>
+        <ul>
+          <li><strong>Within Airflow Environmental Solutions</strong> — to the roles and site scope that legitimately need it, as set out in Section 2;</li>
+          <li><strong>With statutory bodies</strong> — such as ZIMRA, NSSA, and other relevant authorities, where a payroll or tax return legally requires it;</li>
+          <li><strong>With VultureNest</strong> — as the developer that hosts, maintains, and provides technical support for the System, under confidentiality obligations to AES;</li>
+          <li><strong>Where legally required</strong> — to comply with a legal obligation, or to protect the rights, property, or safety of AES, its staff, or others.</li>
+        </ul>
+      </section>
+
+      <section class="clause" id="s-9">
+        <h2><span class="idx">09</span>Data retention</h2>
+        <p>
+          Operational data is retained for as long as your account is active and needed to run the business.
+          Financial, tax, and payroll records are retained for the periods required by applicable Zimbabwean
+          statutory and tax record-keeping obligations, even after an account is deactivated. Audit-log entries are
+          retained indefinitely, by design, as an append-only record.
+        </p>
+      </section>
+
+      <section class="clause" id="s-10">
+        <h2><span class="idx">10</span>Your rights &amp; choices</h2>
+        <p>Subject to applicable law, including Zimbabwe's Cyber and Data Protection Act, you may:</p>
+        <ul>
+          <li>Ask what personal data the System holds about you;</li>
+          <li>Ask us to correct inaccurate personal data;</li>
+          <li>Ask us to delete personal data that is not subject to a statutory retention requirement (this does not extend to locked payroll, tax, or audit records that AES is legally required to keep);</li>
+          <li>Raise a concern about how your data is being used.</li>
+        </ul>
+        <p class="muted">Most requests are best directed to your organisation's System Administrator first, since they manage your account; you can also contact us using the details in Section 14.</p>
+      </section>
+
+      <section class="clause" id="s-11">
+        <h2><span class="idx">11</span>Children's privacy</h2>
+        <p>
+          The System is a workplace tool for employees and contractors and is not directed at, or intended for use
+          by, children. We do not knowingly collect personal data from children through the System.
+        </p>
+      </section>
+
+      <section class="clause" id="s-12">
+        <h2><span class="idx">12</span>International transfers</h2>
+        <p>
+          Hosting and technical infrastructure supporting the System may be located outside Zimbabwe. Where this is
+          the case, we take reasonable steps to ensure your information continues to receive an appropriate standard
+          of protection.
+        </p>
+      </section>
+
+      <section class="clause" id="s-13">
+        <h2><span class="idx">13</span>Changes to this policy</h2>
+        <p>
+          We may update this Policy from time to time. We will update the "Last updated" date above and, for
+          material changes, notify affected users through the System or via their System Administrator.
+        </p>
+      </section>
+
+      <section class="clause" id="s-14">
+        <h2><span class="idx">14</span>Contact us</h2>
+        <p>Questions about this Privacy Policy or a data request can be directed to:</p>
+        <div class="contact-card">
+          <div class="row"><span class="k mono">Operator</span><span>Airflow Environmental Solutions</span></div>
+          <div class="row"><span class="k mono">Built by</span><span>VultureNest</span></div>
+          <div class="row"><span class="k mono">Email</span><span><a href="mailto:info@vulturenest.org">info@vulturenest.org</a></span></div>
+          <div class="row"><span class="k mono">Phone</span><span><a href="tel:+263783347616">+263 78 334 7616</a></span></div>
+          <div class="row"><span class="k mono">Address</span><span>Harare, Zimbabwe</span></div>
+        </div>
+      </section>
+
+      <div class="footer-note">
+        AES Privacy Policy — effective 2026-09-02 — provided for Google Play Store Console submission.
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+(function () {
+  var sections = document.querySelectorAll('section.clause');
+  var linkMap = {};
+  document.querySelectorAll('nav.toc a').forEach(function (a) {
+    linkMap[a.getAttribute('href').slice(1)] = a;
+  });
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var link = linkMap[entry.target.id];
+      if (!link) return;
+      if (entry.isIntersecting) {
+        document.querySelectorAll('nav.toc a.active').forEach(function (l) { l.classList.remove('active'); });
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+</script>
+
+</body>
+</html>
