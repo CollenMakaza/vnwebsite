@@ -208,3 +208,10 @@ All the SCSS File in SCSS Folder of Assets Folder. You can read the doc file als
   outline: 2px solid var(--theme);
   outline-offset: 2px;
 }
+
+/* About page "Why Choose Us" section had a stray padding-bottom: 340px
+   (main.css), leaving a huge dead gap before the Projects section below
+   it — there's no overlapping graphic here that needs that space. */
+.choose-us-3.choose-us-page {
+  padding-bottom: 0;
+}
