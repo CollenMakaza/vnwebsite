@@ -100,8 +100,88 @@ All the SCSS File in SCSS Folder of Assets Folder. You can read the doc file als
  // Contact Us - Section 
  @import 'contact';
  
- // footer - Section 
+ // footer - Section
  @import 'footer';n facts */
 
+/* ==================================================
+   Custom overrides — tighter, more modern spacing
+   ================================================== */
 
+/* Generic section spacing used across nearly every block site-wide */
+.section-padding {
+  padding: 90px 0;
+}
 
+@media (max-width: 1199px) {
+  .section-padding {
+    padding: 72px 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .section-padding {
+    padding: 56px 0;
+  }
+}
+
+/* Interior page title banner (About, Contact, Services, etc.) */
+.breadcrumb-wrapper {
+  padding: 90px 0;
+}
+
+@media (max-width: 767px) {
+  .breadcrumb-wrapper {
+    padding: 64px 0;
+  }
+}
+
+/* Homepage hero */
+.hero-1 .hero-content {
+  padding: 60px 0 70px;
+}
+
+@media (max-width: 1199px) {
+  .hero-1 .hero-content {
+    padding-bottom: 0;
+  }
+}
+
+/* The "Technological Applications..." CTA card (about-2) used a fixed
+   -340px/845px offset+height to bleed its dark background over the
+   sections above and below. That only worked with the old, much taller
+   spacing; shrinking the top offset alone just shifted the same fixed
+   height further down, overlapping the section that follows instead.
+   Simplest fix: make the background exactly fill its own section (no
+   bleed) and give the section normal padding (removed pt-0 in the HTML)
+   so content isn't pinned to the top of a taller decorative card. */
+.about-2 .bg-image {
+  top: 0;
+  height: 100%;
+}
+
+/* Project grid cards (About + Projects hub) — the theme never constrains
+   .image img to its column, so real (non-template) photos render at full
+   native size and blow the card out. */
+.blog-1 .blog-inner .single-blog-item .image img:first-child {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Project logo cards — show the brand mark on a solid backdrop instead of
+   a cropped photo. */
+.blog-1 .blog-inner .single-blog-item .image.proj-logo {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blog-1 .blog-inner .single-blog-item .image.proj-logo img:first-child {
+  width: auto;
+  height: auto;
+  max-width: 65%;
+  max-height: 55%;
+  object-fit: contain;
+}
+.blog-1 .blog-inner .single-blog-item .image.proj-logo-dark { background: #10182a; }

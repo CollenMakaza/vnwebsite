@@ -73,7 +73,7 @@ if (!empty($data['website']) || !empty($data['url'])) {
 }
 
 // Prepare email
-$to = "admin@vulturenest.org";
+$to = "info@vulturenest.org";
 $subject = "New Contact Form Submission from $name";
 $email_content = "Name: $name\n";
 $email_content .= "Email: $email\n";
